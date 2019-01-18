@@ -11,7 +11,7 @@ import Foundation
 extension Udacity {
     
     struct Endpoints {
-        static let session = Udacity.url("/session")
-        static func users(id: Int) -> URL { return Udacity.url("/users/" + String(id)) }
+        static let session = url("/session")
+        static func users(id: String) -> URL { return url("/users/\(id)") }
     }
 }

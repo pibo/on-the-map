@@ -28,7 +28,7 @@ extension Udacity {
     }
     
     struct LoginResponse: Decodable {
-        let id: Int
+        let id: String
         let success: Bool
         let sessionID: String
         
@@ -37,7 +37,7 @@ extension Udacity {
             let account = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .account)
             let session = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .session)
             
-            id = Int(try account.decode(String.self, forKey: .id))!
+            id = try account.decode(String.self, forKey: .id)
             success = try account.decode(Bool.self, forKey: .success)
             sessionID = try session.decode(String.self, forKey: .sessionID)
         }

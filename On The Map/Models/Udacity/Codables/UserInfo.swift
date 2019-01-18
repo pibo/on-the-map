@@ -10,7 +10,7 @@ import Foundation
 
 struct UserInfo: Decodable {
     
-    let id: Int
+    let id: String
     let firstName: String
     let lastName: String
     let nickname: String
@@ -25,7 +25,7 @@ struct UserInfo: Decodable {
         let user = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .user)
         let email = try user.nestedContainer(keyedBy: CodingKeys.self, forKey: .email)
         
-        id = Int(try user.decode(String.self, forKey: .id))!
+        id = try user.decode(String.self, forKey: .id)
         firstName = try user.decode(String.self, forKey: .firstName)
         lastName = try user.decode(String.self, forKey: .lastName)
         nickname = try user.decode(String.self, forKey: .nickname)

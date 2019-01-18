@@ -10,14 +10,14 @@ import Foundation
 
 extension Udacity {
     
-    class func login(username: String, password: String, completionHandler: @escaping (Bool, Error?) -> Void) {
+    class func login(username: String, password: String, completionHandler: @escaping (Error?) -> Void) {
         let payload = LoginRequest(username: username, password: password)
         let _ = api.post(url: Endpoints.session, payload: payload, decodable: LoginResponse.self) { response, error in
             if let response = response, response.success {
                 id = response.id
-                completionHandler(true, nil)
+                completionHandler(nil)
             } else {
-                completionHandler(false, error)
+                completionHandler(error)
             }
         }
     }

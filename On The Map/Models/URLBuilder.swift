@@ -13,12 +13,12 @@ protocol URLBuilder {
     static var host: String { get }
     static var path: String? { get }
     
-    static func url(_ path: String?, params: [String: AnyObject]) -> URL
+    static func url(_ path: String?, params: [String: String]) -> URL
 }
 
 extension URLBuilder {
     
-    static func url(_ path: String? = nil, params: [String: AnyObject] = [:]) -> URL {
+    static func url(_ path: String? = nil, params: [String: String] = [:]) -> URL {
         var components = URLComponents()
         components.scheme = Self.scheme
         components.host = Self.host
@@ -26,7 +26,7 @@ extension URLBuilder {
         components.queryItems = [URLQueryItem]()
         
         for (key, value) in params {
-            let queryItem = URLQueryItem(name: key, value: "\(value)")
+            let queryItem = URLQueryItem(name: key, value: value)
             components.queryItems!.append(queryItem)
         }
         
