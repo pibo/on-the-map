@@ -1,0 +1,35 @@
+//
+//  URLBuilder.swift
+//  On The Map
+//
+//  Created by Felipe Ribeiro on 17/01/19.
+//  Copyright © 2019 Felipe Ribeiro. All rights reserved.
+//
+
+import Foundation
+
+protocol URLBuilder {
+    static var scheme: String { get }
+    static var host: String { get }
+    static var path: String? { get }
+    
+    static func url(_ path: String?, params: [String: AnyObject]) -> URL
+}
+
+extension URLBuilder {
+    
+    static func url(_ path: String? = nil, params: [String: AnyObject] = [:]) -> URL {
+        var components = URLComponents()
+        components.scheme = Self.scheme
+        components.host = Self.host
+        components.path = (Self.path ?? "") + (path ?? "")
+        components.queryItems = [URLQueryItem]()
+        
+        for (key, value) in params {
+            let queryItem = URLQueryItem(name: key, value: "\(value)")
+            components.queryItems!.append(queryItem)
+        }
+        
+        return components.url!
+    }
+}
