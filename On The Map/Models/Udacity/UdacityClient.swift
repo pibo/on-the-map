@@ -9,12 +9,12 @@
 import Foundation
 
 class Udacity: URLBuilder {
+    
+    // MARK: Properties
+    
     static let scheme: String = "https"
     static let host: String = "onthemap-api.udacity.com"
     static let path: String? = "/v1"
-    
-    static var id: String?
-    static var userInfo: UserInfo?
     
     static let api: API = {
 	    var api = API()

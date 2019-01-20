@@ -10,8 +10,15 @@ import Foundation
 
 extension Udacity {
     
+    // MARK: Response
+    
     struct LogoutResponse: Decodable {
+        
+        // MARK: Properties
+        
         let sessionID: String
+        
+        // MARK: Initializer
         
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -19,6 +26,8 @@ extension Udacity {
             
             sessionID = try session.decode(String.self, forKey: .sessionID)
         }
+        
+        // MARK: CodingKeys
         
         enum CodingKeys: String, CodingKey {
             case session

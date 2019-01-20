@@ -10,7 +10,12 @@ import Foundation
 
 extension Parse {
     
+    // MARK: Response
+    
     struct PutResponse: Decodable {
+        
+        // MARK: Properties
+        
         let updatedAt: String
     }
 }

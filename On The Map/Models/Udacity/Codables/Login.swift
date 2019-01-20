@@ -10,8 +10,15 @@ import Foundation
 
 extension Udacity {
 
+    // MARK: Request
+    
     struct LoginRequest: Encodable {
+        
+        // MARK: Properties
+        
         private let credentials: Credentials
+        
+        // MARK: Initializer
         
         init(username: String, password: String) {
             self.credentials = Credentials(username: username, password: password)
@@ -22,15 +29,24 @@ extension Udacity {
             let password: String
         }
         
+        // MARK: CodingKeys
+        
         enum CodingKeys: String, CodingKey {
             case credentials = "udacity"
         }
     }
     
+    // MARK: Response
+    
     struct LoginResponse: Decodable {
+        
+        // MARK: Properties
+        
         let id: String
         let success: Bool
         let sessionID: String
+        
+        // MARK: Initializer
         
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -41,6 +57,8 @@ extension Udacity {
             success = try account.decode(Bool.self, forKey: .success)
             sessionID = try session.decode(String.self, forKey: .sessionID)
         }
+        
+        // MARK: CodingKeys
         
         enum CodingKeys: String, CodingKey {
             case account
