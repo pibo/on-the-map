@@ -12,12 +12,15 @@
 		9818674721F1123E00EEC841 /* UdacityEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9818674621F1123E00EEC841 /* UdacityEndpoints.swift */; };
 		9818674921F1181600EEC841 /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9818674821F1181600EEC841 /* UdacityConvenience.swift */; };
 		9818674B21F119D400EEC841 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9818674A21F119D400EEC841 /* Login.swift */; };
+		985426B921F5FC5C0005D568 /* InternalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985426B821F5FC5C0005D568 /* InternalViewController.swift */; };
 		9866109921ECAE53001F8890 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866109821ECAE53001F8890 /* AppDelegate.swift */; };
 		9866109B21ECAE53001F8890 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866109A21ECAE53001F8890 /* LoginViewController.swift */; };
 		9866109E21ECAE54001F8890 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9866109C21ECAE53001F8890 /* Main.storyboard */; };
 		986610A021ECAE55001F8890 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9866109F21ECAE55001F8890 /* Assets.xcassets */; };
 		986610A321ECAE55001F8890 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986610A121ECAE55001F8890 /* LaunchScreen.storyboard */; };
 		986610AE21ECC3EB001F8890 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986610AD21ECC3EB001F8890 /* API.swift */; };
+		98B1A53821F601DD002952F4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1A53721F601DD002952F4 /* MapViewController.swift */; };
+		98B1A53A21F60429002952F4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1A53921F60429002952F4 /* ListViewController.swift */; };
 		98E2875521F213C900FDFF9E /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2875421F213C900FDFF9E /* Logout.swift */; };
 		98E2875721F22D7F00FDFF9E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2875621F22D7F00FDFF9E /* User.swift */; };
 		98E2875A21F2357200FDFF9E /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2875921F2357200FDFF9E /* ParseClient.swift */; };
@@ -29,7 +32,6 @@
 		98E2876721F24F4500FDFF9E /* Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876621F24F4500FDFF9E /* Put.swift */; };
 		98E2876A21F4E48B00FDFF9E /* UITextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */; };
 		98E2876C21F4E63600FDFF9E /* UIButtonCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */; };
-		98E2876E21F4F9E800FDFF9E /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876D21F4F9E800FDFF9E /* TestViewController.swift */; };
 		98F9A44B21F5E49F0041E2F2 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9A44A21F5E49F0041E2F2 /* DataContainer.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,7 @@
 		9818674621F1123E00EEC841 /* UdacityEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityEndpoints.swift; sourceTree = "<group>"; };
 		9818674821F1181600EEC841 /* UdacityConvenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
 		9818674A21F119D400EEC841 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		985426B821F5FC5C0005D568 /* InternalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalViewController.swift; sourceTree = "<group>"; };
 		9866109521ECAE53001F8890 /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9866109821ECAE53001F8890 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9866109A21ECAE53001F8890 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +50,8 @@
 		986610A221ECAE55001F8890 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		986610A421ECAE55001F8890 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986610AD21ECC3EB001F8890 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		98B1A53721F601DD002952F4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		98B1A53921F60429002952F4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		98E2875421F213C900FDFF9E /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
 		98E2875621F22D7F00FDFF9E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		98E2875921F2357200FDFF9E /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
@@ -58,7 +63,6 @@
 		98E2876621F24F4500FDFF9E /* Put.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Put.swift; sourceTree = "<group>"; };
 		98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPadding.swift; sourceTree = "<group>"; };
 		98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonCornerRadius.swift; sourceTree = "<group>"; };
-		98E2876D21F4F9E800FDFF9E /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		98F9A44A21F5E49F0041E2F2 /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,7 +131,9 @@
 			isa = PBXGroup;
 			children = (
 				9866109A21ECAE53001F8890 /* LoginViewController.swift */,
-				98E2876D21F4F9E800FDFF9E /* TestViewController.swift */,
+				985426B821F5FC5C0005D568 /* InternalViewController.swift */,
+				98B1A53721F601DD002952F4 /* MapViewController.swift */,
+				98B1A53921F60429002952F4 /* ListViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -267,16 +273,18 @@
 				98E2876A21F4E48B00FDFF9E /* UITextFieldPadding.swift in Sources */,
 				9818674921F1181600EEC841 /* UdacityConvenience.swift in Sources */,
 				9818674521F10DB800EEC841 /* UdacityClient.swift in Sources */,
-				98E2876E21F4F9E800FDFF9E /* TestViewController.swift in Sources */,
+				98B1A53821F601DD002952F4 /* MapViewController.swift in Sources */,
 				98E2876321F2486D00FDFF9E /* Results.swift in Sources */,
 				9818674B21F119D400EEC841 /* Login.swift in Sources */,
 				98E2876721F24F4500FDFF9E /* Put.swift in Sources */,
+				98B1A53A21F60429002952F4 /* ListViewController.swift in Sources */,
 				98E2876521F24E4300FDFF9E /* Post.swift in Sources */,
 				9818674721F1123E00EEC841 /* UdacityEndpoints.swift in Sources */,
 				98E2875721F22D7F00FDFF9E /* User.swift in Sources */,
 				98E2875C21F239F800FDFF9E /* ParseEndpoints.swift in Sources */,
 				9866109921ECAE53001F8890 /* AppDelegate.swift in Sources */,
 				98E2876C21F4E63600FDFF9E /* UIButtonCornerRadius.swift in Sources */,
+				985426B921F5FC5C0005D568 /* InternalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,7 @@ import Foundation
 
 extension Udacity {
     
-    class func login(username: String, password: String, completionHandler: @escaping (String?, Error?) -> Void) {
+    class func signIn(username: String, password: String, completionHandler: @escaping (String?, Error?) -> Void) {
         let payload = LoginRequest(username: username, password: password)
         let _ = api.post(url: Endpoints.session, payload: payload, decodable: LoginResponse.self) { response, error in
             if let response = response, response.success {
@@ -21,7 +21,7 @@ extension Udacity {
         }
     }
     
-    class func logout(completionHandler: @escaping (Error?) -> Void) {
+    class func signOut(completionHandler: @escaping (Error?) -> Void) {
         var headers: [String: String] = [:]
         let xsrfCookie = HTTPCookieStorage.shared.cookies!.first(where: { $0.name == "XSRF-TOKEN" })
         

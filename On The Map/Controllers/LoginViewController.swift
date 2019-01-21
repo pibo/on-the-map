@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  SignInViewController.swift
 //  On The Map
 //
 //  Created by Felipe Ribeiro on 14/01/19.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class SignInViewController: UIViewController {
 
     // MARK: Outlets
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var loginButton: UIButton!
+    @IBOutlet var signInButton: UIButton!
     @IBOutlet var activityView: UIActivityIndicatorView!
     
     // MARK: Life Cycle Methods
@@ -33,37 +33,37 @@ class LoginViewController: UIViewController {
         passwordTextField.padding(left: 4, right: 4)
         passwordTextField.borderStyle = .roundedRect
         
-        loginButton.cornerRadius(4)
+        signInButton.cornerRadius(4)
     }
     
     func isLoading(_ loading: Bool) {
         if loading {
-            loginButton.isHidden = true
+            signInButton.isHidden = true
             activityView.startAnimating()
         } else {
-            loginButton.isHidden = false
+            signInButton.isHidden = false
             activityView.stopAnimating()
         }
     }
     
-    func handleLoginCompletion(id: String?, error: Error?) {
+    func handleSignInCompletion(id: String?, error: Error?) {
         if let error = error {
-            handleLoginError(error: error)
+            handleSignInError(error: error)
         } else if let id = id {
-            handleLoginSuccess(id: id)
+            handleSignInSuccess(id: id)
         }
     }
     
-    func handleLoginSuccess(id: String) {
+    func handleSignInSuccess(id: String) {
         DataContainer.shared.id = id
         DataContainer.shared.refresh() { error in
             self.isLoading(false)
             self.passwordTextField.text = ""
-            self.performSegue(withIdentifier: "LoginSuccessful", sender: nil)
+            self.performSegue(withIdentifier: "SignInSuccessful", sender: nil)
         }
     }
     
-    func handleLoginError(error: Error) {
+    func handleSignInError(error: Error) {
         let title, message: String
         
         if let error = error as? APIError, error.status == 403 {
@@ -87,12 +87,12 @@ class LoginViewController: UIViewController {
     
     // MARK: Actions
     
-    @IBAction func login(_ sender: Any) {
+    @IBAction func signIn(_ sender: Any) {
         isLoading(true)
         let username = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        Udacity.login(username: username, password: password, completionHandler: handleLoginCompletion(id:error:))
+        Udacity.signIn(username: username, password: password, completionHandler: handleSignInCompletion(id:error:))
     }
     
     @IBAction func signUp(_ sender: Any) {
@@ -102,14 +102,14 @@ class LoginViewController: UIViewController {
 
 // MARK: UITextFieldDelegate
 
-extension LoginViewController: UITextFieldDelegate {
+extension SignInViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case emailTextField:
             passwordTextField.becomeFirstResponder()
         case passwordTextField:
-            login(textField)
+            signIn(textField)
         default: break
         }
         
@@ -119,11 +119,11 @@ extension LoginViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            loginButton.isEnabled = false
-            loginButton.alpha = 0.25
+            signInButton.isEnabled = false
+            signInButton.alpha = 0.25
         } else {
-            loginButton.isEnabled = true
-            loginButton.alpha = 1
+            signInButton.isEnabled = true
+            signInButton.alpha = 1
         }
         
         return true
