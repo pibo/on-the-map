@@ -209,10 +209,17 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" red="0.3147922158" green="0.69200962779999997" blue="0.8745339513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" image="Refresh"/>
+                                    <connections>
+                                        <action selector="refresh:" destination="bZR-iG-yeh" eventType="touchUpInside" id="0E6-30-Loe"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButtonItem" destination="LZP-Is-evD" id="CmP-4v-dsA"/>
+                        <outlet property="refreshButtonItem" destination="gEc-bO-ZBI" id="AHm-Sb-LPl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pCu-HN-8k6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -324,10 +331,17 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" red="0.3147922158" green="0.69200962779999997" blue="0.8745339513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" image="Refresh"/>
+                                    <connections>
+                                        <action selector="refresh:" destination="scC-Ao-YMj" eventType="touchUpInside" id="Lx6-2i-Zsq"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButtonItem" destination="D1F-PH-fF6" id="AhM-Ns-9h9"/>
+                        <outlet property="refreshButtonItem" destination="JRk-8u-yfP" id="5EC-ir-xOn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ss7-5o-KtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

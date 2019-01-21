@@ -71,7 +71,7 @@ class SignInViewController: UIViewController {
             message = "The provided crendentials are invalid. Please try again!"
         } else {
             title = "Error"
-            message = "An error ocurred. Please try again in a moment!"
+            message = "An error occurred. Please try again in a moment!"
         }
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

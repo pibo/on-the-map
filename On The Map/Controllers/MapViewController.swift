@@ -10,4 +10,13 @@ import UIKit
 
 class MapViewController: InternalViewController {
 
+    // MARK: Actions
+    
+    @IBAction func refresh(_ sender: Any) {
+        isRefreshing(true)
+        DataContainer.shared.refresh { error in
+            self.isRefreshing(false)
+            if error != nil { self.displayRefreshErrorAlert() }
+        }
+    }
 }
