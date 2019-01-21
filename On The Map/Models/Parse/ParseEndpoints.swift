@@ -18,7 +18,7 @@ extension Parse {
         
         // MARK: Methods
         
-        static func studentLocation(limit: Int = 100, skip: Int = 0, order: String? = nil) -> URL {
+        static func studentLocation(limit: Int, skip: Int, order: String?) -> URL {
             var params: [String: String] = [:]
             
             params["limit"] = String(limit)

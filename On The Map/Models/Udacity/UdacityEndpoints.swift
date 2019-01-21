@@ -14,6 +14,7 @@ extension Udacity {
         
         // MARK: Properties
         
+        static let signUp = URL(string: "https://auth.udacity.com/sign-up")!
         static let session = url("/session")
         
         // MARK: Methods

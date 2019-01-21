@@ -33,8 +33,8 @@ extension Udacity {
         }
     }
     
-    class func getUserInfo(id: String, completionHandler: @escaping (UserInfo?, Error?) -> Void) {
-        let _ = api.get(url: Udacity.Endpoints.users(id: id), decodable: UserInfo.self) { response, error in
+    class func getUser(id: String, completionHandler: @escaping (User?, Error?) -> Void) {
+        let _ = api.get(url: Udacity.Endpoints.users(id: id), decodable: User.self) { response, error in
             if let response = response {
                 completionHandler(response, nil)
             } else {

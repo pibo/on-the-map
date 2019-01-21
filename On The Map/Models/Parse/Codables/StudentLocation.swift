@@ -13,7 +13,7 @@ struct StudentLocation: Codable {
     
     // MARK: Properties
     
-    let uniqueKey: String
+    let uniqueKey: String?
     let firstName: String
     let lastName: String
     let mapString: String

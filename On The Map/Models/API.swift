@@ -45,6 +45,7 @@ class API {
             }
             
             let transformedData = self.transformData(data)
+            print(String(data: transformedData, encoding: .utf8))
             let decoder = JSONDecoder()
             
             if let statusCode = (response as? HTTPURLResponse)?.statusCode, !(200...299).contains(statusCode) {
