@@ -23,6 +23,12 @@ struct StudentLocation: Codable {
     var latitude: Double?
     var longitude: Double?
     
+    // MARK: Computed Properties
+    
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
+    
     // MARK: Methods
     
     mutating func getCoordinate(completionHandler: @escaping ((latitude: Double, longitude: Double)?, Error?) -> Void) {

@@ -10,5 +10,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "ListViewController.tableView(_:numberOfRowsInSection:):ListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "DataContainer.shared.studentLocations">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

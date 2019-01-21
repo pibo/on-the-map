@@ -16,7 +16,7 @@ class DataContainer {
     
     var id: String!
     var user: User?
-    var studentLocations: [StudentLocation]?
+    var studentLocations: [StudentLocation] = []
     var myStudentLocation: StudentLocation?
     
     // MARK: Shared Instance
@@ -51,7 +51,7 @@ class DataContainer {
             if let error = error {
                 completionHandler(error)
             } else {
-                self.studentLocations = studentLocations
+                self.studentLocations = studentLocations!.filter { $0.uniqueKey != self.id }
                 completionHandler(nil)
             }
         }
@@ -63,6 +63,11 @@ class DataContainer {
                 completionHandler(error)
             } else {
                 self.myStudentLocation = myStudentLocation
+                
+                if let myStudentLocation = myStudentLocation {
+                    self.studentLocations.insert(myStudentLocation, at: 0)
+                }
+                
                 completionHandler(nil)
             }
         }
