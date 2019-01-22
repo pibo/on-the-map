@@ -50,18 +50,19 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseIdentifier = "StudentLocationPin"
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKPinAnnotationView
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKMarkerAnnotationView
         
-        if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            pinView!.canShowCallout = true
-            pinView!.pinTintColor = UIColor(named: "Primary Blue")!
-            pinView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        if annotationView == nil {
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
+            annotationView!.canShowCallout = true
+            annotationView!.markerTintColor = UIColor(named: "Primary Blue")!
+            annotationView!.clusteringIdentifier = reuseIdentifier
+            annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {
-            pinView!.annotation = annotation
+            annotationView!.annotation = annotation
         }
         
-        return pinView
+        return annotationView
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
