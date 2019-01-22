@@ -15,6 +15,38 @@ class InternalViewController: UIViewController {
     @IBOutlet var refreshButtonItem: UIBarButtonItem!
     @IBOutlet var addButtonItem: UIBarButtonItem!
     
+    // MARK: Life Cycle Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        subscribe(to: DataContainer.shared)
+    }
+    
+    deinit {
+        unsubscribe(from: DataContainer.shared)
+    }
+    
+    // MARK: Notification Related Methods
+    
+    @objc func dataContainerDidRefresh(_ notification: Notification) {}
+    
+    func subscribe(to container: DataContainer) {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.dataContainerDidRefresh(_:)),
+            name: UIApplication.didRefreshDataContainerNotification,
+            object: container
+        )
+    }
+    
+    func unsubscribe(from container: DataContainer) {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIApplication.didRefreshDataContainerNotification,
+            object: container
+        )
+    }
+    
     // MARK: Refresh Related Methods
     
     func isRefreshing(_ refreshing: Bool) {
@@ -53,5 +85,13 @@ class InternalViewController: UIViewController {
         alert.addAction(signOut)
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func refresh(_ sender: Any) {
+        isRefreshing(true)
+        DataContainer.shared.refresh { error in
+            self.isRefreshing(false)
+            if error != nil { self.displayRefreshErrorAlert() }
+        }
     }
 }

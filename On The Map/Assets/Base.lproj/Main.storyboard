@@ -212,7 +212,7 @@
                                     <color key="tintColor" red="0.3147922158" green="0.69200962779999997" blue="0.8745339513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" image="Refresh"/>
                                     <connections>
-                                        <action selector="refresh:" destination="bZR-iG-yeh" eventType="touchUpInside" id="0E6-30-Loe"/>
+                                        <action selector="refresh:" destination="bZR-iG-yeh" eventType="touchUpInside" id="uUx-hG-r6M"/>
                                     </connections>
                                 </button>
                             </barButtonItem>
@@ -365,7 +365,7 @@
                                     <color key="tintColor" red="0.3147922158" green="0.69200962779999997" blue="0.8745339513" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <state key="normal" image="Refresh"/>
                                     <connections>
-                                        <action selector="refresh:" destination="scC-Ao-YMj" eventType="touchUpInside" id="Lx6-2i-Zsq"/>
+                                        <action selector="refresh:" destination="scC-Ao-YMj" eventType="touchUpInside" id="4JG-TO-pFY"/>
                                     </connections>
                                 </button>
                             </barButtonItem>

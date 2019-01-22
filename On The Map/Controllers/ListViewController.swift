@@ -13,20 +13,11 @@ class ListViewController: InternalViewController {
     // MARK: Outlets
     
     @IBOutlet var tableView: UITableView!
-
-    // MARK: Actions
     
-    @IBAction func refresh(_ sender: Any) {
-        isRefreshing(true)
-        DataContainer.shared.refresh { error in
-            self.isRefreshing(false)
-            
-            if error != nil {
-                self.displayRefreshErrorAlert()
-            } else {
-                self.tableView.reloadData()
-            }
-        }
+    // MARK: Notification Related Methods
+    
+    override func dataContainerDidRefresh(_ notification: Notification) {
+        tableView.reloadData()
     }
 }
 

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class DataContainer {
     
@@ -51,8 +52,13 @@ class DataContainer {
             if let error = error {
                 completionHandler(error)
             } else {
-                self.studentLocations = studentLocations!.filter { $0.uniqueKey != self.id }
-                completionHandler(nil)
+                self.studentLocations = studentLocations!.filter {
+                    $0.uniqueKey != self.id &&
+                    $0.latitude != nil &&
+                    $0.longitude != nil
+                }
+                
+                self.getMyStudentLocation(completionHandler: completionHandler)
             }
         }
     }
@@ -69,7 +75,16 @@ class DataContainer {
                 }
                 
                 completionHandler(nil)
+                
+                // Notify everyone that we have fresh data.
+                NotificationCenter.default.post(name: UIApplication.didRefreshDataContainerNotification, object: self)
             }
         }
     }
+}
+
+// MARK: Notification Name
+
+extension UIApplication {
+    public static let didRefreshDataContainerNotification = Notification.Name("UIApplicationDidRefreshDataContainerNotification")
 }

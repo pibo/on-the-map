@@ -22,6 +22,13 @@ class MapViewController: InternalViewController {
         addAnnotations()
     }
     
+    // Notification Related Methods
+    
+    override func dataContainerDidRefresh(_ notification: Notification) {
+        removeAnnotations()
+        addAnnotations()
+    }
+    
     // MARK: Methods
     
     func addAnnotations() {
@@ -30,17 +37,9 @@ class MapViewController: InternalViewController {
         
         mapView.addAnnotations(annotations)
     }
-
-    // MARK: Actions
     
-    @IBAction func refresh(_ sender: Any) {
-        isRefreshing(true)
-        DataContainer.shared.refresh { error in
-            self.isRefreshing(false)
-            if error != nil { self.displayRefreshErrorAlert() }
-            self.mapView.removeAnnotations(self.mapView.annotations)
-            self.addAnnotations()
-        }
+    func removeAnnotations() {
+        mapView.removeAnnotations(mapView.annotations)
     }
 }
 
