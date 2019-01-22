@@ -19,6 +19,7 @@
 		986610A021ECAE55001F8890 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9866109F21ECAE55001F8890 /* Assets.xcassets */; };
 		986610A321ECAE55001F8890 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986610A121ECAE55001F8890 /* LaunchScreen.storyboard */; };
 		986610AE21ECC3EB001F8890 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986610AD21ECC3EB001F8890 /* API.swift */; };
+		98A7982821F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7982721F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift */; };
 		98B1A53821F601DD002952F4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1A53721F601DD002952F4 /* MapViewController.swift */; };
 		98B1A53A21F60429002952F4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1A53921F60429002952F4 /* ListViewController.swift */; };
 		98E2875521F213C900FDFF9E /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2875421F213C900FDFF9E /* Logout.swift */; };
@@ -50,6 +51,7 @@
 		986610A221ECAE55001F8890 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		986610A421ECAE55001F8890 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986610AD21ECC3EB001F8890 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		98A7982721F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationMKPointAnnotation.swift; sourceTree = "<group>"; };
 		98B1A53721F601DD002952F4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		98B1A53921F60429002952F4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		98E2875421F213C900FDFF9E /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			children = (
 				98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */,
 				98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */,
+				98A7982721F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				98B1A53821F601DD002952F4 /* MapViewController.swift in Sources */,
 				98E2876321F2486D00FDFF9E /* Results.swift in Sources */,
 				9818674B21F119D400EEC841 /* Login.swift in Sources */,
+				98A7982821F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift in Sources */,
 				98E2876721F24F4500FDFF9E /* Put.swift in Sources */,
 				98B1A53A21F60429002952F4 /* ListViewController.swift in Sources */,
 				98E2876521F24E4300FDFF9E /* Post.swift in Sources */,

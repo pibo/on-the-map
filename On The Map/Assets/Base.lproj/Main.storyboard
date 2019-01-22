@@ -168,17 +168,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swk-R1-4yO">
-                                <rect key="frame" x="171" y="323" width="33.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="jXz-HE-mjz">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bZR-iG-yeh" id="Ryb-Us-Qsd"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="swk-R1-4yO" firstAttribute="centerY" secondItem="6fc-KQ-gon" secondAttribute="centerY" id="GDp-oI-uoQ"/>
-                            <constraint firstItem="swk-R1-4yO" firstAttribute="centerX" secondItem="6fc-KQ-gon" secondAttribute="centerX" id="mVH-Ky-Uan"/>
+                            <constraint firstItem="jXz-HE-mjz" firstAttribute="top" secondItem="A1o-gh-2q6" secondAttribute="top" id="6lY-1i-ZNm"/>
+                            <constraint firstItem="A1o-gh-2q6" firstAttribute="bottom" secondItem="jXz-HE-mjz" secondAttribute="bottom" id="fLm-je-7DZ"/>
+                            <constraint firstItem="jXz-HE-mjz" firstAttribute="leading" secondItem="A1o-gh-2q6" secondAttribute="leading" id="ukq-M5-TeO"/>
+                            <constraint firstItem="A1o-gh-2q6" firstAttribute="trailing" secondItem="jXz-HE-mjz" secondAttribute="trailing" id="xid-uM-Bob"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A1o-gh-2q6"/>
                     </view>
@@ -218,6 +220,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButtonItem" destination="LZP-Is-evD" id="CmP-4v-dsA"/>
+                        <outlet property="mapView" destination="jXz-HE-mjz" id="IoX-iQ-DmQ"/>
                         <outlet property="refreshButtonItem" destination="gEc-bO-ZBI" id="AHm-Sb-LPl"/>
                     </connections>
                 </viewController>

@@ -11,6 +11,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MapViewController.mapView(_:annotationView:calloutAccessoryControlTapped:):MapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "control">
+            </PersistentString>
+            <PersistentString
+               value = "view">
+            </PersistentString>
+            <PersistentString
+               value = "control == view.rightCalloutAccessoryView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ListViewController.tableView(_:numberOfRowsInSection:):ListViewController.swift">
          <PersistentStrings>
             <PersistentString
