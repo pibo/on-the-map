@@ -64,7 +64,7 @@ class InternalViewController: UIViewController {
     }
     
     func displayRefreshErrorAlert() {
-        let alert = UIAlertController(title: "Error", message: "An error occurred when refreshing. Please try again in a moment!", preferredStyle: .alert)
+        let alert = UIAlertController(title: Strings.RefreshFailed.title, message: Strings.RefreshFailed.message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         
         alert.addAction(action)
@@ -75,7 +75,7 @@ class InternalViewController: UIViewController {
     // MARK: Actions
     
     @IBAction func signOut(_ sender: Any) {
-        let alert = UIAlertController(title: "Sign Out", message: "Are you sure you want to sign out? You have to provide an e-mail and password to sign in again.", preferredStyle: .alert)
+        let alert = UIAlertController(title: Strings.SignOut.title, message: Strings.SignOut.message, preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let signOut = UIAlertAction(title: "Sign Out", style: .destructive) { _ in
             self.dismiss(animated: true, completion: nil)

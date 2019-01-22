@@ -67,11 +67,11 @@ class SignInViewController: UIViewController {
         let title, message: String
         
         if let error = error as? APIError, error.status == 403 {
-            title = "Wrong combination"
-            message = "The provided crendentials are invalid. Please try again!"
+            title = Strings.InvalidCredentials.title
+            message = Strings.InvalidCredentials.message
         } else {
-            title = "Error"
-            message = "An error occurred. Please try again in a moment!"
+            title = Strings.Error.title
+            message = Strings.Error.message
         }
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)

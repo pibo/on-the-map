@@ -20,6 +20,7 @@
 		986610A321ECAE55001F8890 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 986610A121ECAE55001F8890 /* LaunchScreen.storyboard */; };
 		986610AE21ECC3EB001F8890 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986610AD21ECC3EB001F8890 /* API.swift */; };
 		98A7982821F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7982721F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift */; };
+		98A7982A21F7854700785E93 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7982921F7854700785E93 /* Strings.swift */; };
 		98B1A53821F601DD002952F4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1A53721F601DD002952F4 /* MapViewController.swift */; };
 		98B1A53A21F60429002952F4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1A53921F60429002952F4 /* ListViewController.swift */; };
 		98E2875521F213C900FDFF9E /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2875421F213C900FDFF9E /* Logout.swift */; };
@@ -52,6 +53,7 @@
 		986610A421ECAE55001F8890 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		986610AD21ECC3EB001F8890 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		98A7982721F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationMKPointAnnotation.swift; sourceTree = "<group>"; };
+		98A7982921F7854700785E93 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		98B1A53721F601DD002952F4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		98B1A53921F60429002952F4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		98E2875421F213C900FDFF9E /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				9866109821ECAE53001F8890 /* AppDelegate.swift */,
+				98A7982921F7854700785E93 /* Strings.swift */,
 				986610A421ECAE55001F8890 /* Info.plist */,
 				986610AA21ECC20B001F8890 /* Controllers */,
 				986610AC21ECC301001F8890 /* Models */,
@@ -272,6 +275,7 @@
 				98E2875521F213C900FDFF9E /* Logout.swift in Sources */,
 				9818674221F10AAE00EEC841 /* URLBuilder.swift in Sources */,
 				986610AE21ECC3EB001F8890 /* API.swift in Sources */,
+				98A7982A21F7854700785E93 /* Strings.swift in Sources */,
 				98E2875A21F2357200FDFF9E /* ParseClient.swift in Sources */,
 				98E2876A21F4E48B00FDFF9E /* UITextFieldPadding.swift in Sources */,
 				9818674921F1181600EEC841 /* UdacityConvenience.swift in Sources */,
