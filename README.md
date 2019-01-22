@@ -16,6 +16,7 @@ No desenvolvimento deste app foram aprendidos os seguintes conceitos:
 * Uso das classes `URL`, `URLRequest`, `URLSession`
 * Uso do MapKit e Core Location
 * Uso do GCD para não bloquear a UI
+* Uso do `NotificationCenter` com uma notificação customizada
 
 ### Instalação
 
