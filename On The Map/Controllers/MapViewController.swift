@@ -11,6 +11,10 @@ import MapKit
 
 class MapViewController: InternalViewController {
     
+    // MARK: Properties
+    
+    let delegate = MapViewDelegate()
+    
     // MARK: Outlets
     
     @IBOutlet var mapView: MKMapView!
@@ -19,12 +23,13 @@ class MapViewController: InternalViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = delegate
         addAnnotations()
     }
     
-    // Notification Related Methods
+    // MARK: Notification Related Methods
     
-    override func dataContainerDidRefresh(_ notification: Notification) {
+    override func dataContainerDidChange(_ notification: Notification) {
         removeAnnotations()
         addAnnotations()
     }
@@ -40,35 +45,5 @@ class MapViewController: InternalViewController {
     
     func removeAnnotations() {
         mapView.removeAnnotations(mapView.annotations)
-    }
-}
-
-// MARK: MKMapViewDelegate
-
-extension MapViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let reuseIdentifier = "StudentLocationPin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKMarkerAnnotationView
-        
-        if annotationView == nil {
-            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            annotationView!.canShowCallout = true
-            annotationView!.markerTintColor = UIColor(named: "Primary Blue")!
-            annotationView!.clusteringIdentifier = reuseIdentifier
-            annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        } else {
-            annotationView!.annotation = annotation
-        }
-        
-        return annotationView
-    }
-    
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        if control == view.rightCalloutAccessoryView {
-            if let mediaURL = view.annotation?.subtitle! {
-                UIApplication.shared.open(URL(string: mediaURL)!, options: [:], completionHandler: nil)
-            }
-        }
     }
 }

@@ -15,7 +15,7 @@ class SignInViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var signInButton: UIButton!
-    @IBOutlet var activityView: UIActivityIndicatorView!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Life Cycle Methods
     
@@ -39,24 +39,40 @@ class SignInViewController: UIViewController {
     func isLoading(_ loading: Bool) {
         if loading {
             signInButton.isHidden = true
-            activityView.startAnimating()
+            activityIndicator.startAnimating()
         } else {
             signInButton.isHidden = false
-            activityView.stopAnimating()
+            activityIndicator.stopAnimating()
         }
     }
     
-    func handleSignInCompletion(id: String?, error: Error?) {
+    func handleSignInCompletion(id: String!, error: Error?) {
         if let error = error {
             handleSignInError(error: error)
-        } else if let id = id {
-            handleSignInSuccess(id: id)
+            return
         }
+        
+        handleSignInSuccess(id: id)
     }
     
     func handleSignInSuccess(id: String) {
-        DataContainer.shared.id = id
+        DataContainer.shared.getUser(id: id) { error in
+            if let error = error {
+                self.handleSignInError(error: error)
+                return
+            }
+            
+            self.performInitialRefresh()
+        }
+    }
+    
+    func performInitialRefresh() {
         DataContainer.shared.refresh() { error in
+            if let error = error {
+                self.handleSignInError(error: error)
+                return
+            }
+        
             self.isLoading(false)
             self.passwordTextField.text = ""
             self.performSegue(withIdentifier: "SignInSuccessful", sender: nil)
@@ -76,13 +92,14 @@ class SignInViewController: UIViewController {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { _ in
-            self.passwordTextField.text = ""
             self.passwordTextField.becomeFirstResponder()
         }
         
         alert.addAction(action)
         
-        present(alert, animated: true) { self.isLoading(false) }
+        isLoading(false)
+        passwordTextField.text = ""
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: Actions

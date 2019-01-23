@@ -18,10 +18,6 @@ struct User: Decodable {
     let nickname: String
     let email: String
     
-    var fullName: String {
-        return "\(firstName) \(lastName)"
-    }
-    
     // MARK: Initializer
     
     init(from decoder: Decoder) throws {

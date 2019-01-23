@@ -16,7 +16,7 @@ class ListViewController: InternalViewController {
     
     // MARK: Notification Related Methods
     
-    override func dataContainerDidRefresh(_ notification: Notification) {
+    override func dataContainerDidChange(_ notification: Notification) {
         tableView.reloadData()
     }
 }

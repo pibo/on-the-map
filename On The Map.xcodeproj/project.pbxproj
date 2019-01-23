@@ -21,8 +21,11 @@
 		986610AE21ECC3EB001F8890 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986610AD21ECC3EB001F8890 /* API.swift */; };
 		98A7982821F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7982721F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift */; };
 		98A7982A21F7854700785E93 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7982921F7854700785E93 /* Strings.swift */; };
+		98A7982C21F7896C00785E93 /* NewStudentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7982B21F7896C00785E93 /* NewStudentLocationViewController.swift */; };
+		98A7982E21F7897F00785E93 /* NewStudentLocationMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A7982D21F7897F00785E93 /* NewStudentLocationMapViewController.swift */; };
 		98B1A53821F601DD002952F4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1A53721F601DD002952F4 /* MapViewController.swift */; };
 		98B1A53A21F60429002952F4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B1A53921F60429002952F4 /* ListViewController.swift */; };
+		98D66F1621F8A4BD0050C1E2 /* MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D66F1521F8A4BD0050C1E2 /* MKMapViewDelegate.swift */; };
 		98E2875521F213C900FDFF9E /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2875421F213C900FDFF9E /* Logout.swift */; };
 		98E2875721F22D7F00FDFF9E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2875621F22D7F00FDFF9E /* User.swift */; };
 		98E2875A21F2357200FDFF9E /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2875921F2357200FDFF9E /* ParseClient.swift */; };
@@ -54,8 +57,11 @@
 		986610AD21ECC3EB001F8890 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		98A7982721F63DFB00785E93 /* StudentLocationMKPointAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocationMKPointAnnotation.swift; sourceTree = "<group>"; };
 		98A7982921F7854700785E93 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		98A7982B21F7896C00785E93 /* NewStudentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentLocationViewController.swift; sourceTree = "<group>"; };
+		98A7982D21F7897F00785E93 /* NewStudentLocationMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentLocationMapViewController.swift; sourceTree = "<group>"; };
 		98B1A53721F601DD002952F4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		98B1A53921F60429002952F4 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		98D66F1521F8A4BD0050C1E2 /* MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapViewDelegate.swift; sourceTree = "<group>"; };
 		98E2875421F213C900FDFF9E /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
 		98E2875621F22D7F00FDFF9E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		98E2875921F2357200FDFF9E /* ParseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
@@ -124,6 +130,7 @@
 				9866109821ECAE53001F8890 /* AppDelegate.swift */,
 				98A7982921F7854700785E93 /* Strings.swift */,
 				986610A421ECAE55001F8890 /* Info.plist */,
+				98D66F1421F8A4A60050C1E2 /* Delegates */,
 				986610AA21ECC20B001F8890 /* Controllers */,
 				986610AC21ECC301001F8890 /* Models */,
 				98E2876821F4E47200FDFF9E /* Views */,
@@ -139,6 +146,8 @@
 				985426B821F5FC5C0005D568 /* InternalViewController.swift */,
 				98B1A53721F601DD002952F4 /* MapViewController.swift */,
 				98B1A53921F60429002952F4 /* ListViewController.swift */,
+				98A7982B21F7896C00785E93 /* NewStudentLocationViewController.swift */,
+				98A7982D21F7897F00785E93 /* NewStudentLocationMapViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -163,6 +172,14 @@
 				98F9A44A21F5E49F0041E2F2 /* DataContainer.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		98D66F1421F8A4A60050C1E2 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				98D66F1521F8A4BD0050C1E2 /* MKMapViewDelegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		98E2875821F2356700FDFF9E /* Parse */ = {
@@ -270,9 +287,11 @@
 			files = (
 				9866109B21ECAE53001F8890 /* SignInViewController.swift in Sources */,
 				98E2876121F245E200FDFF9E /* ParseConvenience.swift in Sources */,
+				98A7982E21F7897F00785E93 /* NewStudentLocationMapViewController.swift in Sources */,
 				98F9A44B21F5E49F0041E2F2 /* DataContainer.swift in Sources */,
 				98E2875F21F23E8600FDFF9E /* StudentLocation.swift in Sources */,
 				98E2875521F213C900FDFF9E /* Logout.swift in Sources */,
+				98D66F1621F8A4BD0050C1E2 /* MKMapViewDelegate.swift in Sources */,
 				9818674221F10AAE00EEC841 /* URLBuilder.swift in Sources */,
 				986610AE21ECC3EB001F8890 /* API.swift in Sources */,
 				98A7982A21F7854700785E93 /* Strings.swift in Sources */,
@@ -292,6 +311,7 @@
 				98E2875C21F239F800FDFF9E /* ParseEndpoints.swift in Sources */,
 				9866109921ECAE53001F8890 /* AppDelegate.swift in Sources */,
 				98E2876C21F4E63600FDFF9E /* UIButtonCornerRadius.swift in Sources */,
+				98A7982C21F7896C00785E93 /* NewStudentLocationViewController.swift in Sources */,
 				985426B921F5FC5C0005D568 /* InternalViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

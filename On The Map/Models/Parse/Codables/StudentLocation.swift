@@ -13,7 +13,7 @@ struct StudentLocation: Codable {
     
     // MARK: Properties
     
-    let uniqueKey: String?
+    let uniqueKey: String
     let firstName: String
     let lastName: String
     let mapString: String
@@ -29,6 +29,34 @@ struct StudentLocation: Codable {
         return "\(firstName) \(lastName)"
     }
     
+    // MARK: Initializer
+    
+    init(uniqueKey: String, firstName: String, lastName: String, mapString: String, mediaURL: String) {
+        self.uniqueKey = uniqueKey
+        self.firstName = firstName
+        self.lastName = lastName
+        self.mapString = mapString
+        self.mediaURL = mediaURL
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        do {
+            uniqueKey = try container.decode(String.self, forKey: .uniqueKey)
+        } catch {
+            uniqueKey = "?????"
+        }
+        
+        firstName = try container.decode(String.self, forKey: .firstName)
+        lastName = try container.decode(String.self, forKey: .lastName)
+        mapString = try container.decode(String.self, forKey: .mapString)
+        mediaURL = try container.decode(String.self, forKey: .mediaURL)
+        objectId = try container.decode(String.self, forKey: .objectId)
+        latitude = try? container.decode(Double.self, forKey: .latitude)
+        longitude = try? container.decode(Double.self, forKey: .longitude)
+    }
+    
     // MARK: Methods
     
     mutating func getCoordinate(completionHandler: @escaping ((latitude: Double, longitude: Double)?, Error?) -> Void) {
@@ -39,7 +67,14 @@ struct StudentLocation: Codable {
         
         CLGeocoder().geocodeAddressString(mapString) { placemarks, error in
             if let error = error {
-                completionHandler(nil, error)
+                
+                // Check if no results were found or if we have another type of error.
+                if (error as NSError).code == CLError.Code.geocodeFoundNoResult.rawValue {
+                    completionHandler(nil, nil)
+                } else {
+                    completionHandler(nil, error)
+                }
+                
                 return
             }
             

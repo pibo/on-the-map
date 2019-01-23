@@ -28,13 +28,13 @@ class InternalViewController: UIViewController {
     
     // MARK: Notification Related Methods
     
-    @objc func dataContainerDidRefresh(_ notification: Notification) {}
+    @objc func dataContainerDidChange(_ notification: Notification) {}
     
     func subscribe(to container: DataContainer) {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(self.dataContainerDidRefresh(_:)),
-            name: UIApplication.didRefreshDataContainerNotification,
+            selector: #selector(self.dataContainerDidChange(_:)),
+            name: UIApplication.didUpdateDataContainerNotification,
             object: container
         )
     }
@@ -42,7 +42,7 @@ class InternalViewController: UIViewController {
     func unsubscribe(from container: DataContainer) {
         NotificationCenter.default.removeObserver(
             self,
-            name: UIApplication.didRefreshDataContainerNotification,
+            name: UIApplication.didUpdateDataContainerNotification,
             object: container
         )
     }
@@ -92,6 +92,23 @@ class InternalViewController: UIViewController {
         DataContainer.shared.refresh { error in
             self.isRefreshing(false)
             if error != nil { self.displayRefreshErrorAlert() }
+        }
+    }
+    
+    @IBAction func newStudentLocation(_ sender: Any) {
+        if DataContainer.shared.myStudentLocation == nil {
+            performSegue(withIdentifier: "NewStudentLocation", sender: self)
+        } else {
+            let alert = UIAlertController(title: Strings.NewStudentLocationOverwrite.title, message: Strings.NewStudentLocationOverwrite.message, preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let overwrite = UIAlertAction(title: "Overwrite", style: .destructive) { _ in
+                self.performSegue(withIdentifier: "NewStudentLocation", sender: self)
+            }
+            
+            alert.addAction(cancel)
+            alert.addAction(overwrite)
+            
+            present(alert, animated: true, completion: nil)
         }
     }
 }
