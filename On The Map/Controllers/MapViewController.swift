@@ -38,7 +38,7 @@ class MapViewController: InternalViewController {
     
     func addAnnotations() {
         let studentLocations = DataContainer.shared.studentLocations
-        let annotations = studentLocations.reversed().map(StudentLocationMKPointAnnotation.init)
+        let annotations = studentLocations.map(StudentLocationMKPointAnnotation.init)
         
         mapView.addAnnotations(annotations)
     }
