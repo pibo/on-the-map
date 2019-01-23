@@ -18,12 +18,12 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView!.canShowCallout = true
             annotationView!.markerTintColor = UIColor(named: "Primary Blue")!
-            annotationView!.clusteringIdentifier = reuseIdentifier
             annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {
             annotationView!.annotation = annotation
         }
         
+        annotationView!.clusteringIdentifier = reuseIdentifier
         return annotationView
     }
     

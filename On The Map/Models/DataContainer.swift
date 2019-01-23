@@ -78,9 +78,7 @@ class DataContainer {
                 let myLocation: (StudentLocation) -> Bool = { $0.uniqueKey != self.user.id }
                 let emptyCoordinate: (StudentLocation) -> Bool = { $0.latitude != nil && $0.longitude != nil }
                 
-                self.studentLocations = studentLocations!
-                self.studentLocations = self.studentLocations.filter(myLocation)
-                self.studentLocations = self.studentLocations.filter(emptyCoordinate)
+                self.studentLocations = studentLocations!.filter(emptyCoordinate).filter(myLocation)
                 
                 completionHandler(nil)
             }

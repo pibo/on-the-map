@@ -3,14 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "closure #1 in LoginViewController.handleLoginSuccess(id:):LoginViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "DataContainer.shared">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "MapViewController.mapView(_:annotationView:calloutAccessoryControlTapped:):MapViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -25,10 +17,37 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "NewStudentLocationMapViewController.finish(_:):NewStudentLocationMapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "DataContainer.shared.myStudentLocation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "StudentLocationMKPointAnnotation.init(_:):StudentLocationMKPointAnnotation.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginViewController.handleLoginSuccess(id:):LoginViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "DataContainer.shared">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "ListViewController.tableView(_:numberOfRowsInSection:):ListViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "DataContainer.shared.studentLocations">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "NewStudentLocationMapViewController.handlePostResponse(id:error:):NewStudentLocationMapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "DataContainer.shared.myStudentLocation">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

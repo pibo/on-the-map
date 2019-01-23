@@ -10,9 +10,15 @@ import MapKit
 
 class StudentLocationMKPointAnnotation: MKPointAnnotation {
     
+    // MARK: Properties
+    
+    var source: StudentLocation
+    
     // MARK: Initializer
     
     init(_ studentLocation: StudentLocation) {
+        source = studentLocation
+        
         super.init()
         
         let latitude = CLLocationDegrees(studentLocation.latitude!)

@@ -37,7 +37,12 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.detailTextLabel?.text = studentLocation.mediaURL
         
         cell.imageView?.image = UIImage(named: "Pin")!.withRenderingMode(.alwaysTemplate)
-        cell.imageView?.tintColor = UIColor(named: "Primary Blue")
+        
+        if let myLocation = DataContainer.shared.myStudentLocation, myLocation.objectId == studentLocation.objectId {
+            cell.imageView?.tintColor = .red
+        } else {
+            cell.imageView?.tintColor = UIColor(named: "Primary Blue")
+        }
         
         return cell
     }
