@@ -17,10 +17,20 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
             annotationView!.canShowCallout = true
-            annotationView!.markerTintColor = UIColor(named: "Primary Blue")!
+            annotationView!.markerTintColor = UIColor(named: "Primary Blue")
             annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {
             annotationView!.annotation = annotation
+        }
+        
+        let studentLocation = (annotation as? StudentLocationMKPointAnnotation)?.source
+        if let studentLocation = studentLocation, let myLocation = DataContainer.shared.myStudentLocation, myLocation == studentLocation {
+            annotationView!.markerTintColor = .red
+        }
+        
+        // Always use orange for clusters.
+        if annotation is MKClusterAnnotation {
+            annotationView!.markerTintColor = .purple
         }
         
         annotationView!.clusteringIdentifier = reuseIdentifier

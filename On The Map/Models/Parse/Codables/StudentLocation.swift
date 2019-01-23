@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-struct StudentLocation: Codable {
+struct StudentLocation: Codable, Equatable {
     
     // MARK: Properties
     
@@ -87,5 +87,11 @@ struct StudentLocation: Codable {
                 completionHandler(nil, nil)
             }
         }
+    }
+}
+
+extension StudentLocation {
+    static func ==(lhs: StudentLocation, rhs: StudentLocation) -> Bool {
+        return lhs.objectId == rhs.objectId
     }
 }
