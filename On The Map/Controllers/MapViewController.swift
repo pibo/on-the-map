@@ -13,7 +13,7 @@ class MapViewController: InternalViewController {
     
     // MARK: Properties
     
-    let delegate = MapViewDelegate()
+    var delegate = MapViewDelegate()
     var otherStudentAnnotations = [StudentAnnotation]()
     var myStudentAnnotation: StudentAnnotation?
     
@@ -68,6 +68,7 @@ class MapViewController: InternalViewController {
     // MARK: Methods
     
     func add(my annotation: StudentAnnotation) {
+        delegate.myStudentAnnotation = annotation
         myStudentAnnotation = annotation
         mapView.addAnnotation(annotation)
     }

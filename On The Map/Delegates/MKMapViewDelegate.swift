@@ -10,6 +10,12 @@ import MapKit
 
 class MapViewDelegate: NSObject, MKMapViewDelegate {
     
+    // MARK: Properties
+    
+    var myStudentAnnotation: StudentAnnotation?
+    
+    // MARK: MKMapViewDelegate
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseIdentifier = "StudentLocationPin"
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseIdentifier) as? MKMarkerAnnotationView
@@ -24,9 +30,13 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         annotationView!.canShowCallout = true
         annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         
-        // Always use purple for clusters.
-        if annotation is MKClusterAnnotation {
-            annotationView!.markerTintColor = .purple
+        // Set the color for markers and clusters.
+        if let cluster = annotation as? MKClusterAnnotation {
+            annotationView!.markerTintColor = UIColor(named: "Darker Blue")!
+            
+            if let myAnnotation = myStudentAnnotation, let memberAnnotations = cluster.memberAnnotations as? [StudentAnnotation], memberAnnotations.contains(myAnnotation) {
+                annotationView!.markerTintColor = UIColor(named: "Primary Red")!
+            }
         } else {
             annotationView!.markerTintColor = (annotation as! StudentAnnotation).markColor
         }

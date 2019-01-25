@@ -34,3 +34,9 @@ class StudentAnnotation: NSObject, MKAnnotation {
         subtitle = studentLocation.mediaURL
     }
 }
+
+// MARK: Equatable for StudentAnnotation
+
+func ==<T: StudentAnnotation>(lhs: T, rhs: T) -> Bool {
+    return lhs.studentLocation == rhs.studentLocation
+}
