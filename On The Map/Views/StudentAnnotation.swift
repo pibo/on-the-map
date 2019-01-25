@@ -1,5 +1,5 @@
 //
-//  StudentLocationMKPointAnnotation.swift
+//  StudentAnnotation.swift
 //  On The Map
 //
 //  Created by Felipe Ribeiro on 21/01/19.
@@ -8,16 +8,20 @@
 
 import MapKit
 
-class StudentLocationMKPointAnnotation: MKPointAnnotation {
+class StudentAnnotation: MKPointAnnotation {
     
     // MARK: Properties
     
-    var source: StudentLocation
+    let studentLocation: StudentLocation
+    let markColor: UIColor
+    
+    var memberAnnotations: [MKAnnotation] = []
     
     // MARK: Initializer
     
-    init(_ studentLocation: StudentLocation) {
-        source = studentLocation
+    init(studentLocation: StudentLocation, markColor: UIColor) {
+        self.studentLocation = studentLocation
+        self.markColor = markColor
         
         super.init()
         

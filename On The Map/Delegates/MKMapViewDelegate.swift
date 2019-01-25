@@ -16,30 +16,27 @@ class MapViewDelegate: NSObject, MKMapViewDelegate {
         
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: reuseIdentifier)
-            annotationView!.canShowCallout = true
-            annotationView!.markerTintColor = UIColor(named: "Primary Blue")
-            annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         } else {
             annotationView!.annotation = annotation
         }
         
-        let studentLocation = (annotation as? StudentLocationMKPointAnnotation)?.source
-        if let studentLocation = studentLocation, let myLocation = DataContainer.shared.myStudentLocation, myLocation == studentLocation {
-            annotationView!.markerTintColor = .red
-        }
+        annotationView!.clusteringIdentifier = reuseIdentifier
+        annotationView!.canShowCallout = true
+        annotationView!.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         
-        // Always use orange for clusters.
+        // Always use purple for clusters.
         if annotation is MKClusterAnnotation {
             annotationView!.markerTintColor = .purple
+        } else {
+            annotationView!.markerTintColor = (annotation as! StudentAnnotation).markColor
         }
         
-        annotationView!.clusteringIdentifier = reuseIdentifier
         return annotationView
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            if let mediaURL = view.annotation?.subtitle! {
+            if let mediaURL = (view.annotation as? StudentAnnotation)?.studentLocation.mediaURL {
                 UIApplication.shared.open(URL(string: mediaURL)!, options: [:], completionHandler: nil)
             }
         }

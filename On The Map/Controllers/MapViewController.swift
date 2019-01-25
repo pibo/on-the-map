@@ -14,6 +14,8 @@ class MapViewController: InternalViewController {
     // MARK: Properties
     
     let delegate = MapViewDelegate()
+    var otherStudentAnnotations = [StudentAnnotation]()
+    var myStudentAnnotation: StudentAnnotation?
     
     // MARK: Outlets
     
@@ -24,26 +26,54 @@ class MapViewController: InternalViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = delegate
-        addAnnotations()
+        
+        let container = DataContainer.shared
+        
+        if let myLocation = container.myStudentLocation {
+            let annotation = StudentAnnotation(studentLocation: myLocation, markColor: UIColor(named: "Primary Red")!)
+            add(my: annotation)
+        }
+        
+        let annotations = container.otherStudentLocations.map { StudentAnnotation(studentLocation: $0, markColor: UIColor(named: "Primary Blue")!) }
+        add(other: annotations)
     }
     
     // MARK: Notification Related Methods
     
-    override func dataContainerDidChange(_ notification: Notification) {
-        removeAnnotations()
-        addAnnotations()
+    @objc override func didChangeOtherStudentLocations(_ notification: Notification) {
+        let otherStudentLocations = notification.userInfo![DataContainer.otherStudentLocationsKey] as! [StudentLocation]
+        
+        mapView.removeAnnotations(otherStudentAnnotations)
+        
+        let annotations = otherStudentLocations.map { StudentAnnotation(studentLocation: $0, markColor: UIColor(named: "Primary Blue")!) }
+        add(other: annotations)
+    }
+    
+    @objc override func didAddMyStudentLocation(_ notification: Notification) {
+        let myStudentLocation = notification.userInfo![DataContainer.myStudentLocationKey] as! StudentLocation
+        let annotation = StudentAnnotation(studentLocation: myStudentLocation, markColor: UIColor(named: "Primary Red")!)
+        
+        add(my: annotation)
+    }
+    
+    @objc override func didUpdateMyStudentLocation(_ notification: Notification) {
+        let myStudentLocation = notification.userInfo![DataContainer.myStudentLocationKey] as! StudentLocation
+        
+        mapView.removeAnnotation(myStudentAnnotation!)
+        
+        let annotation = StudentAnnotation(studentLocation: myStudentLocation, markColor: UIColor(named: "Primary Red")!)
+        add(my: annotation)
     }
     
     // MARK: Methods
     
-    func addAnnotations() {
-        let studentLocations = DataContainer.shared.studentLocations
-        let annotations = studentLocations.map(StudentLocationMKPointAnnotation.init)
-        
-        mapView.addAnnotations(annotations)
+    func add(my annotation: StudentAnnotation) {
+        myStudentAnnotation = annotation
+        mapView.addAnnotation(annotation)
     }
     
-    func removeAnnotations() {
-        mapView.removeAnnotations(mapView.annotations)
+    func add(other annotations: [StudentAnnotation]) {
+        otherStudentAnnotations = annotations
+        mapView.addAnnotations(annotations)
     }
 }

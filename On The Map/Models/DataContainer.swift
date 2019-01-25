@@ -16,13 +16,39 @@ class DataContainer {
     // MARK: Properties
     
     var user: User!
-    var myStudentLocation: StudentLocation?
-    var studentLocations: [StudentLocation] = [] {
-        // Notify everyone that we have fresh data.
+    
+    var myStudentLocation: StudentLocation? {
         didSet {
-            NotificationCenter.default.post(name: UIApplication.didUpdateDataContainerNotification, object: self)
+            guard let myStudentLocation = myStudentLocation else { return }
+            let notification = oldValue == nil ? DataContainer.didAddMyStudentLocationNotification : DataContainer.didUpdateMyStudentLocationNotification
+            NotificationCenter.default.post(
+                name: notification,
+                object: self,
+                userInfo: [DataContainer.myStudentLocationKey: myStudentLocation]
+            )
         }
     }
+    
+    var otherStudentLocations: [StudentLocation] = [] {
+        didSet {
+            NotificationCenter.default.post(
+                name: DataContainer.didChangeOtherStudentLocationsNotification,
+                object: self,
+                userInfo: [DataContainer.otherStudentLocationsKey: otherStudentLocations]
+            )
+        }
+    }
+    
+    // MARK: Notifications
+    
+    static let didChangeOtherStudentLocationsNotification = Notification.Name("didChangeOtherStudentLocationsNotification")
+    static let didAddMyStudentLocationNotification = Notification.Name("didAddMyStudentLocationNotification")
+    static let didUpdateMyStudentLocationNotification = Notification.Name("didUpdateMyStudentLocationNotification")
+    
+    // MARK: UserInfo Keys
+    
+    static let myStudentLocationKey = "myStudentLocation"
+    static let otherStudentLocationsKey = "otherStudentLocations"
     
     // MARK: Shared Instance
     
@@ -54,31 +80,19 @@ class DataContainer {
                 return
             }
             
-            self.getMyStudentLocation { error in
-                if let error = error {
-                    completionHandler(error)
-                    return
-                }
-                
-                // Prepend my location to all locations array.
-                if let myStudentLocation = self.myStudentLocation {
-                    self.studentLocations.insert(myStudentLocation, at: 0)
-                }
-                
-                completionHandler(nil)
-            }
+            self.getMyStudentLocation(completionHandler: completionHandler)
         }
     }
     
     func getStudentLocations(completionHandler: @escaping CompletionHandler) {
-        Parse.get { studentLocations, error in
+        Parse.get { otherStudentLocations, error in
             if let error = error {
                 completionHandler(error)
             } else {
                 let myLocation: (StudentLocation) -> Bool = { $0.uniqueKey != self.user.id }
                 let emptyCoordinate: (StudentLocation) -> Bool = { $0.latitude != nil && $0.longitude != nil }
                 
-                self.studentLocations = studentLocations!.filter(emptyCoordinate).filter(myLocation)
+                self.otherStudentLocations = otherStudentLocations!.filter(emptyCoordinate).filter(myLocation)
                 
                 completionHandler(nil)
             }
@@ -95,10 +109,4 @@ class DataContainer {
             }
         }
     }
-}
-
-// MARK: Notification Name
-
-extension UIApplication {
-    public static let didUpdateDataContainerNotification = Notification.Name("UIApplicationDidUpdateDataContainerNotification")
 }

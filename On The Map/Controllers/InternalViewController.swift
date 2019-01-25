@@ -28,13 +28,29 @@ class InternalViewController: UIViewController {
     
     // MARK: Notification Related Methods
     
-    @objc func dataContainerDidChange(_ notification: Notification) {}
+    @objc func didChangeOtherStudentLocations(_ notification: Notification) {}
+    @objc func didAddMyStudentLocation(_ notification: Notification) {}
+    @objc func didUpdateMyStudentLocation(_ notification: Notification) {}
     
     func subscribe(to container: DataContainer) {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(self.dataContainerDidChange(_:)),
-            name: UIApplication.didUpdateDataContainerNotification,
+            selector: #selector(didChangeOtherStudentLocations(_:)),
+            name: DataContainer.didChangeOtherStudentLocationsNotification,
+            object: container
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didAddMyStudentLocation(_:)),
+            name: DataContainer.didAddMyStudentLocationNotification,
+            object: container
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(didUpdateMyStudentLocation(_:)),
+            name: DataContainer.didUpdateMyStudentLocationNotification,
             object: container
         )
     }
@@ -42,7 +58,19 @@ class InternalViewController: UIViewController {
     func unsubscribe(from container: DataContainer) {
         NotificationCenter.default.removeObserver(
             self,
-            name: UIApplication.didUpdateDataContainerNotification,
+            name: DataContainer.didChangeOtherStudentLocationsNotification,
+            object: container
+        )
+        
+        NotificationCenter.default.removeObserver(
+            self,
+            name: DataContainer.didAddMyStudentLocationNotification,
+            object: container
+        )
+        
+        NotificationCenter.default.removeObserver(
+            self,
+            name: DataContainer.didUpdateMyStudentLocationNotification,
             object: container
         )
     }

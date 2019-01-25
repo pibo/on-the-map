@@ -15,9 +15,17 @@ class ListViewController: InternalViewController {
     @IBOutlet var tableView: UITableView!
     
     // MARK: Notification Related Methods
-    
-    override func dataContainerDidChange(_ notification: Notification) {
+
+    @objc override func didChangeOtherStudentLocations(_ notification: Notification) {
         tableView.reloadData()
+    }
+    
+    @objc override func didAddMyStudentLocation(_ notification: Notification) {
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
+    }
+    
+    @objc override func didUpdateMyStudentLocation(_ notification: Notification) {
+        tableView.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .fade)
     }
 }
 
@@ -26,30 +34,46 @@ class ListViewController: InternalViewController {
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DataContainer.shared.studentLocations.count
+        let container = DataContainer.shared
+        var count = container.otherStudentLocations.count
+        
+        if container.myStudentLocation != nil {
+            count += 1
+        }
+        
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationCell")!
-        let studentLocation = DataContainer.shared.studentLocations[indexPath.row]
+        var studentLocation = DataContainer.shared.otherStudentLocations[indexPath.row]
+        var pinColor = UIColor(named: "Primary Blue")!
+        
+        if let myLocation = DataContainer.shared.myStudentLocation {
+            if indexPath.row == 0 {
+                studentLocation = myLocation
+                pinColor = UIColor(named: "Primary Red")!
+            } else {
+                studentLocation = DataContainer.shared.otherStudentLocations[indexPath.row - 1]
+            }
+        }
         
         cell.textLabel?.text = studentLocation.fullName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? "No Name" : studentLocation.fullName
         cell.detailTextLabel?.text = studentLocation.mediaURL
-        
         cell.imageView?.image = UIImage(named: "Pin")!.withRenderingMode(.alwaysTemplate)
-        
-        if let myLocation = DataContainer.shared.myStudentLocation, myLocation.objectId == studentLocation.objectId {
-            cell.imageView?.tintColor = .red
-        } else {
-            cell.imageView?.tintColor = UIColor(named: "Primary Blue")
-        }
+        cell.imageView?.tintColor = pinColor
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let studentLocation = DataContainer.shared.studentLocations[indexPath.row]
-        let url = URL(string: studentLocation.mediaURL)!
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        var studentLocation = DataContainer.shared.otherStudentLocations[indexPath.row]
+        
+        if let myLocation = DataContainer.shared.myStudentLocation {
+            studentLocation = indexPath.row == 0 ? myLocation : DataContainer.shared.otherStudentLocations[indexPath.row - 1]
+        }
+        
+        let url = URL(string: studentLocation.mediaURL)
+        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
     }
 }

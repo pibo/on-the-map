@@ -6,15 +6,15 @@
 //  Copyright © 2019 Felipe Ribeiro. All rights reserved.
 //
 
-import UIKit
 import MapKit
+import UIKit
 
 class NewStudentLocationMapViewController: UIViewController {
     
     // MARK: Properties
     
     let delegate = MapViewDelegate()
-    var annotation: StudentLocationMKPointAnnotation!
+    var annotation: StudentAnnotation!
     var newStudentLocation: StudentLocation!
     var originalButtonTitle: String!
     
@@ -47,7 +47,7 @@ class NewStudentLocationMapViewController: UIViewController {
     // MARK: Methods
 
     func addAnnotation() {
-        annotation = StudentLocationMKPointAnnotation(newStudentLocation)
+        annotation = StudentAnnotation(studentLocation: newStudentLocation, markColor: UIColor(named: "Primary Red")!)
         mapView.addAnnotation(annotation)
     }
 
@@ -80,7 +80,6 @@ class NewStudentLocationMapViewController: UIViewController {
         
         newStudentLocation.objectId = id!
         DataContainer.shared.myStudentLocation = newStudentLocation
-        DataContainer.shared.studentLocations.insert(newStudentLocation, at: 0)
         dismiss(animated: true, completion: nil)
     }
     
@@ -93,7 +92,6 @@ class NewStudentLocationMapViewController: UIViewController {
         }
         
         DataContainer.shared.myStudentLocation = newStudentLocation
-        DataContainer.shared.studentLocations[0] = newStudentLocation
         dismiss(animated: true, completion: nil)
     }
     
