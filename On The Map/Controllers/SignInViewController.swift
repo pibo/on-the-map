@@ -8,8 +8,8 @@
 
 import UIKit
 
-class SignInViewController: UIViewController, HideViewsOnLandscape {
-
+class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
+    
     // MARK: Outlets
     
     @IBOutlet var emailTextField: UITextField!
@@ -22,6 +22,7 @@ class SignInViewController: UIViewController, HideViewsOnLandscape {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        adjustView(for: [emailTextField, passwordTextField])
         hideKeyboardOnTap()
         hideOnLandscape(view: udacityLogo)
         setupRoundedBorders()

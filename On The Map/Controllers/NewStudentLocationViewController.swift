@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewStudentLocationViewController: UIViewController, HideViewsOnLandscape {
+class NewStudentLocationViewController: KeyboardAwareViewController, HideViewsOnLandscape {
     
     // MARK: Properties
     
@@ -26,6 +26,7 @@ class NewStudentLocationViewController: UIViewController, HideViewsOnLandscape {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        adjustView(for: [mapStringTextField, mediaURLTextField])
         hideKeyboardOnTap()
         hideOnLandscape(view: globeImage)
         setupRoundedBorders()

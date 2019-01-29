@@ -3,6 +3,20 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "SignInViewController.handleSignInCompletion(id:error:):SignInViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "AdjustViewForKeyboard&lt;&gt;.stopAdjustingView():AdjustViewForKeyboard.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.keyboardObservers">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AdjustViewForKeyboard&lt;&gt;.stopAdjustingView():AdjustViewForKeyboard.swift">
+      </ContextState>
+      <ContextState
          contextName = "MapViewController.mapView(_:annotationView:calloutAccessoryControlTapped:):MapViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -21,6 +35,23 @@
          <PersistentStrings>
             <PersistentString
                value = "DataContainer.shared.myStudentLocation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "KeyboardAwareViewController.calculateOffset(for:):KeyboardAwareViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "view.frame.height">
+            </PersistentString>
+            <PersistentString
+               value = "textField">
+            </PersistentString>
+            <PersistentString
+               value = "keyboardHeight">
+            </PersistentString>
+            <PersistentString
+               value = "visibleArea">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

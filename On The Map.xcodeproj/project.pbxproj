@@ -14,6 +14,7 @@
 		9818674B21F119D400EEC841 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9818674A21F119D400EEC841 /* Login.swift */; };
 		982658532200678100E36055 /* HideViewsOnLandscape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982658522200678100E36055 /* HideViewsOnLandscape.swift */; };
 		9826585522007EF200E36055 /* HideKeyboardOnTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9826585422007EF200E36055 /* HideKeyboardOnTap.swift */; };
+		982658592200B80900E36055 /* KeyboardAwareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982658582200B80900E36055 /* KeyboardAwareViewController.swift */; };
 		985426B921F5FC5C0005D568 /* InternalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985426B821F5FC5C0005D568 /* InternalViewController.swift */; };
 		9866109921ECAE53001F8890 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866109821ECAE53001F8890 /* AppDelegate.swift */; };
 		9866109B21ECAE53001F8890 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9866109A21ECAE53001F8890 /* SignInViewController.swift */; };
@@ -50,6 +51,7 @@
 		9818674A21F119D400EEC841 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		982658522200678100E36055 /* HideViewsOnLandscape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideViewsOnLandscape.swift; sourceTree = "<group>"; };
 		9826585422007EF200E36055 /* HideKeyboardOnTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboardOnTap.swift; sourceTree = "<group>"; };
+		982658582200B80900E36055 /* KeyboardAwareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAwareViewController.swift; sourceTree = "<group>"; };
 		985426B821F5FC5C0005D568 /* InternalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalViewController.swift; sourceTree = "<group>"; };
 		9866109521ECAE53001F8890 /* On The Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On The Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9866109821ECAE53001F8890 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -211,11 +213,12 @@
 		98E2876821F4E47200FDFF9E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				982658582200B80900E36055 /* KeyboardAwareViewController.swift */,
+				982658522200678100E36055 /* HideViewsOnLandscape.swift */,
+				9826585422007EF200E36055 /* HideKeyboardOnTap.swift */,
 				98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */,
 				98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */,
 				98A7982721F63DFB00785E93 /* StudentAnnotation.swift */,
-				982658522200678100E36055 /* HideViewsOnLandscape.swift */,
-				9826585422007EF200E36055 /* HideKeyboardOnTap.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				9818674721F1123E00EEC841 /* UdacityEndpoints.swift in Sources */,
 				98E2875721F22D7F00FDFF9E /* User.swift in Sources */,
 				98E2875C21F239F800FDFF9E /* ParseEndpoints.swift in Sources */,
+				982658592200B80900E36055 /* KeyboardAwareViewController.swift in Sources */,
 				9866109921ECAE53001F8890 /* AppDelegate.swift in Sources */,
 				98E2876C21F4E63600FDFF9E /* UIButtonCornerRadius.swift in Sources */,
 				98A7982C21F7896C00785E93 /* NewStudentLocationViewController.swift in Sources */,
