@@ -1,5 +1,5 @@
 //
-//  DataContainer.swift
+//  DataController.swift
 //  On The Map
 //
 //  Created by Felipe Ribeiro on 21/01/19.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DataContainer {
+class DataController {
     
     typealias CompletionHandler = (Error?) -> Void
     
@@ -20,11 +20,11 @@ class DataContainer {
     var myStudentLocation: StudentLocation? {
         didSet {
             guard let myStudentLocation = myStudentLocation else { return }
-            let notification = oldValue == nil ? DataContainer.didAddMyStudentLocationNotification : DataContainer.didUpdateMyStudentLocationNotification
+            let notification = oldValue == nil ? DataController.didAddMyStudentLocationNotification : DataController.didUpdateMyStudentLocationNotification
             NotificationCenter.default.post(
                 name: notification,
                 object: self,
-                userInfo: [DataContainer.myStudentLocationKey: myStudentLocation]
+                userInfo: [DataController.myStudentLocationKey: myStudentLocation]
             )
         }
     }
@@ -32,9 +32,9 @@ class DataContainer {
     var otherStudentLocations: [StudentLocation] = [] {
         didSet {
             NotificationCenter.default.post(
-                name: DataContainer.didChangeOtherStudentLocationsNotification,
+                name: DataController.didChangeOtherStudentLocationsNotification,
                 object: self,
-                userInfo: [DataContainer.otherStudentLocationsKey: otherStudentLocations]
+                userInfo: [DataController.otherStudentLocationsKey: otherStudentLocations]
             )
         }
     }
@@ -52,9 +52,9 @@ class DataContainer {
     
     // MARK: - Shared Instance
     
-    class var shared: DataContainer {
+    class var shared: DataController {
         struct Singleton {
-            static var sharedInstance = DataContainer()
+            static var sharedInstance = DataController()
         }
         
         return Singleton.sharedInstance

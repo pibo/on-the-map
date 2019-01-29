@@ -27,21 +27,21 @@ class MapViewController: InternalViewController {
         super.viewDidLoad()
         mapView.delegate = delegate
         
-        let container = DataContainer.shared
+        let controller = DataController.shared
         
-        if let myLocation = container.myStudentLocation {
+        if let myLocation = controller.myStudentLocation {
             let annotation = StudentAnnotation(studentLocation: myLocation, markColor: UIColor(named: "Primary Red")!)
             add(my: annotation)
         }
         
-        let annotations = container.otherStudentLocations.map { StudentAnnotation(studentLocation: $0, markColor: UIColor(named: "Primary Blue")!) }
+        let annotations = controller.otherStudentLocations.map { StudentAnnotation(studentLocation: $0, markColor: UIColor(named: "Primary Blue")!) }
         add(other: annotations)
     }
     
     // MARK: - Notification Related Methods
     
     @objc override func didChangeOtherStudentLocations(_ notification: Notification) {
-        let otherStudentLocations = notification.userInfo![DataContainer.otherStudentLocationsKey] as! [StudentLocation]
+        let otherStudentLocations = notification.userInfo![DataController.otherStudentLocationsKey] as! [StudentLocation]
         
         mapView.removeAnnotations(otherStudentAnnotations)
         
@@ -50,14 +50,14 @@ class MapViewController: InternalViewController {
     }
     
     @objc override func didAddMyStudentLocation(_ notification: Notification) {
-        let myStudentLocation = notification.userInfo![DataContainer.myStudentLocationKey] as! StudentLocation
+        let myStudentLocation = notification.userInfo![DataController.myStudentLocationKey] as! StudentLocation
         let annotation = StudentAnnotation(studentLocation: myStudentLocation, markColor: UIColor(named: "Primary Red")!)
         
         add(my: annotation)
     }
     
     @objc override func didUpdateMyStudentLocation(_ notification: Notification) {
-        let myStudentLocation = notification.userInfo![DataContainer.myStudentLocationKey] as! StudentLocation
+        let myStudentLocation = notification.userInfo![DataController.myStudentLocationKey] as! StudentLocation
         
         mapView.removeAnnotation(myStudentAnnotation!)
         

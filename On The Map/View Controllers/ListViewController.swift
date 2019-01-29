@@ -34,10 +34,10 @@ class ListViewController: InternalViewController {
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let container = DataContainer.shared
-        var count = container.otherStudentLocations.count
+        let controller = DataController.shared
+        var count = controller.otherStudentLocations.count
         
-        if container.myStudentLocation != nil {
+        if controller.myStudentLocation != nil {
             count += 1
         }
         
@@ -46,15 +46,15 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationCell")!
-        var studentLocation = DataContainer.shared.otherStudentLocations[indexPath.row]
+        var studentLocation = DataController.shared.otherStudentLocations[indexPath.row]
         var pinColor = UIColor(named: "Primary Blue")!
         
-        if let myLocation = DataContainer.shared.myStudentLocation {
+        if let myLocation = DataController.shared.myStudentLocation {
             if indexPath.row == 0 {
                 studentLocation = myLocation
                 pinColor = UIColor(named: "Primary Red")!
             } else {
-                studentLocation = DataContainer.shared.otherStudentLocations[indexPath.row - 1]
+                studentLocation = DataController.shared.otherStudentLocations[indexPath.row - 1]
             }
         }
         
@@ -67,10 +67,10 @@ extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var studentLocation = DataContainer.shared.otherStudentLocations[indexPath.row]
+        var studentLocation = DataController.shared.otherStudentLocations[indexPath.row]
         
-        if let myLocation = DataContainer.shared.myStudentLocation {
-            studentLocation = indexPath.row == 0 ? myLocation : DataContainer.shared.otherStudentLocations[indexPath.row - 1]
+        if let myLocation = DataController.shared.myStudentLocation {
+            studentLocation = indexPath.row == 0 ? myLocation : DataController.shared.otherStudentLocations[indexPath.row - 1]
         }
         
         let url = URL(string: studentLocation.mediaURL)

@@ -118,7 +118,7 @@ class NewStudentLocationViewController: KeyboardAwareViewController, HideViewsOn
     @IBAction func continueToMap(_ sender: Any) {
         isLoading(true)
         
-        let user = DataContainer.shared.user!
+        let user = DataController.shared.user!
         newStudentLocation = StudentLocation(
             uniqueKey: user.id,
             firstName: user.firstName,

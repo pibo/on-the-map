@@ -19,11 +19,11 @@ class InternalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        subscribe(to: DataContainer.shared)
+        subscribe(to: DataController.shared)
     }
     
     deinit {
-        unsubscribe(from: DataContainer.shared)
+        unsubscribe(from: DataController.shared)
     }
     
     // MARK: - Notification Related Methods
@@ -32,45 +32,45 @@ class InternalViewController: UIViewController {
     @objc func didAddMyStudentLocation(_ notification: Notification) {}
     @objc func didUpdateMyStudentLocation(_ notification: Notification) {}
     
-    func subscribe(to container: DataContainer) {
+    func subscribe(to container: DataController) {
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(didChangeOtherStudentLocations(_:)),
-            name: DataContainer.didChangeOtherStudentLocationsNotification,
+            name: DataController.didChangeOtherStudentLocationsNotification,
             object: container
         )
         
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(didAddMyStudentLocation(_:)),
-            name: DataContainer.didAddMyStudentLocationNotification,
+            name: DataController.didAddMyStudentLocationNotification,
             object: container
         )
         
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(didUpdateMyStudentLocation(_:)),
-            name: DataContainer.didUpdateMyStudentLocationNotification,
+            name: DataController.didUpdateMyStudentLocationNotification,
             object: container
         )
     }
     
-    func unsubscribe(from container: DataContainer) {
+    func unsubscribe(from container: DataController) {
         NotificationCenter.default.removeObserver(
             self,
-            name: DataContainer.didChangeOtherStudentLocationsNotification,
+            name: DataController.didChangeOtherStudentLocationsNotification,
             object: container
         )
         
         NotificationCenter.default.removeObserver(
             self,
-            name: DataContainer.didAddMyStudentLocationNotification,
+            name: DataController.didAddMyStudentLocationNotification,
             object: container
         )
         
         NotificationCenter.default.removeObserver(
             self,
-            name: DataContainer.didUpdateMyStudentLocationNotification,
+            name: DataController.didUpdateMyStudentLocationNotification,
             object: container
         )
     }
@@ -117,14 +117,14 @@ class InternalViewController: UIViewController {
     
     @IBAction func refresh(_ sender: Any) {
         isRefreshing(true)
-        DataContainer.shared.refresh { error in
+        DataController.shared.refresh { error in
             self.isRefreshing(false)
             if error != nil { self.displayRefreshErrorAlert() }
         }
     }
     
     @IBAction func newStudentLocation(_ sender: Any) {
-        if DataContainer.shared.myStudentLocation == nil {
+        if DataController.shared.myStudentLocation == nil {
             performSegue(withIdentifier: "NewStudentLocation", sender: self)
         } else {
             let alert = UIAlertController(title: Strings.NewStudentLocationOverwrite.title, message: Strings.NewStudentLocationOverwrite.message, preferredStyle: .alert)

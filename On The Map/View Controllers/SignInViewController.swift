@@ -64,7 +64,7 @@ class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
     }
     
     func handleSignInSuccess(id: String) {
-        DataContainer.shared.getUser(id: id) { error in
+        DataController.shared.getUser(id: id) { error in
             if let error = error {
                 self.handleSignInError(error: error)
                 return
@@ -75,7 +75,7 @@ class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
     }
     
     func performInitialRefresh() {
-        DataContainer.shared.refresh() { error in
+        DataController.shared.refresh() { error in
             if let error = error {
                 self.handleSignInError(error: error)
                 return

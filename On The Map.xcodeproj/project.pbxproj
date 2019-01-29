@@ -40,7 +40,7 @@
 		98E2876721F24F4500FDFF9E /* Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876621F24F4500FDFF9E /* Put.swift */; };
 		98E2876A21F4E48B00FDFF9E /* UITextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */; };
 		98E2876C21F4E63600FDFF9E /* UIButtonCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */; };
-		98F9A44B21F5E49F0041E2F2 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9A44A21F5E49F0041E2F2 /* DataContainer.swift */; };
+		98F9A44B21F5E49F0041E2F2 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9A44A21F5E49F0041E2F2 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +79,7 @@
 		98E2876621F24F4500FDFF9E /* Put.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Put.swift; sourceTree = "<group>"; };
 		98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPadding.swift; sourceTree = "<group>"; };
 		98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonCornerRadius.swift; sourceTree = "<group>"; };
-		98F9A44A21F5E49F0041E2F2 /* DataContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
+		98F9A44A21F5E49F0041E2F2 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +175,7 @@
 				9818674321F10D9100EEC841 /* Udacity */,
 				986610AD21ECC3EB001F8890 /* API.swift */,
 				9818674121F10AAE00EEC841 /* URLBuilder.swift */,
-				98F9A44A21F5E49F0041E2F2 /* DataContainer.swift */,
+				98F9A44A21F5E49F0041E2F2 /* DataController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 				9866109B21ECAE53001F8890 /* SignInViewController.swift in Sources */,
 				98E2876121F245E200FDFF9E /* ParseConvenience.swift in Sources */,
 				98A7982E21F7897F00785E93 /* NewStudentLocationMapViewController.swift in Sources */,
-				98F9A44B21F5E49F0041E2F2 /* DataContainer.swift in Sources */,
+				98F9A44B21F5E49F0041E2F2 /* DataController.swift in Sources */,
 				98E2875F21F23E8600FDFF9E /* StudentLocation.swift in Sources */,
 				9826585522007EF200E36055 /* HideKeyboardOnTap.swift in Sources */,
 				98E2875521F213C900FDFF9E /* Logout.swift in Sources */,

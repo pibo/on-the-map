@@ -79,7 +79,7 @@ class NewStudentLocationMapViewController: UIViewController {
         }
         
         newStudentLocation.objectId = id!
-        DataContainer.shared.myStudentLocation = newStudentLocation
+        DataController.shared.myStudentLocation = newStudentLocation
         dismiss(animated: true, completion: nil)
     }
     
@@ -91,7 +91,7 @@ class NewStudentLocationMapViewController: UIViewController {
             return
         }
         
-        DataContainer.shared.myStudentLocation = newStudentLocation
+        DataController.shared.myStudentLocation = newStudentLocation
         dismiss(animated: true, completion: nil)
     }
     
@@ -100,7 +100,7 @@ class NewStudentLocationMapViewController: UIViewController {
     @IBAction func finish(_ sender: Any) {
         isLoading(true)
         
-        if let myLocation = DataContainer.shared.myStudentLocation {
+        if let myLocation = DataController.shared.myStudentLocation {
             Parse.put(id: myLocation.objectId!, payload: newStudentLocation, completionHandler: handlePutResponse(error:))
         } else {
             Parse.post(newStudentLocation, completionHandler: handlePostResponse(id:error:))
