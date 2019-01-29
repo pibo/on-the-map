@@ -101,9 +101,9 @@ class NewStudentLocationMapViewController: UIViewController {
         isLoading(true)
         
         if let myLocation = DataController.shared.myStudentLocation {
-            Parse.put(id: myLocation.objectId!, payload: newStudentLocation, completionHandler: handlePutResponse(error:))
+            Parse.put(id: myLocation.objectId!, payload: newStudentLocation, completion: handlePutResponse(error:))
         } else {
-            Parse.post(newStudentLocation, completionHandler: handlePostResponse(id:error:))
+            Parse.post(newStudentLocation, completion: handlePostResponse(id:error:))
         }
     }
 }

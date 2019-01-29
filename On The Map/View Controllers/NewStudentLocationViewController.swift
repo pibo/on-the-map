@@ -127,7 +127,7 @@ class NewStudentLocationViewController: KeyboardAwareViewController, HideViewsOn
             mediaURL: mediaURLTextField.text!
         )
         
-        newStudentLocation.getCoordinate(completionHandler: handleGetCoordinateCompletion(coordinate:error:))
+        newStudentLocation.getCoordinate(completion: handleGetCoordinateCompletion(coordinate:error:))
     }
 }
 

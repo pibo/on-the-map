@@ -54,9 +54,9 @@ struct StudentLocation: Codable, Equatable {
     
     // MARK: - Methods
     
-    mutating func getCoordinate(completionHandler: @escaping ((latitude: Double, longitude: Double)?, Error?) -> Void) {
+    mutating func getCoordinate(completion: @escaping ((latitude: Double, longitude: Double)?, Error?) -> Void) {
         if let lat = latitude, let lon = longitude {
-            completionHandler((latitude: lat, longitude: lon), nil)
+            completion((latitude: lat, longitude: lon), nil)
             return
         }
         
@@ -65,9 +65,9 @@ struct StudentLocation: Codable, Equatable {
                 
                 // Check if no results were found or if we have another type of error.
                 if (error as NSError).code == CLError.Code.geocodeFoundNoResult.rawValue {
-                    completionHandler(nil, nil)
+                    completion(nil, nil)
                 } else {
-                    completionHandler(nil, error)
+                    completion(nil, error)
                 }
                 
                 return
@@ -77,9 +77,9 @@ struct StudentLocation: Codable, Equatable {
             
             if let location = location {
                 let coordinate = location.coordinate
-                completionHandler((latitude: coordinate.latitude, longitude: coordinate.longitude), nil)
+                completion((latitude: coordinate.latitude, longitude: coordinate.longitude), nil)
             } else {
-                completionHandler(nil, nil)
+                completion(nil, nil)
             }
         }
     }

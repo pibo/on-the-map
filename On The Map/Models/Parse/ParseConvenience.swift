@@ -10,45 +10,45 @@ import Foundation
 
 extension Parse {
     
-    class func get(limit: Int = 100, skip: Int = 0, order: String? = "-createdAt", completionHandler: @escaping ([StudentLocation]?, Error?) -> Void) {
+    class func get(limit: Int = 100, skip: Int = 0, order: String? = "-createdAt", completion: @escaping ([StudentLocation]?, Error?) -> Void) {
         let url = Endpoints.studentLocation(limit: limit, skip: skip, order: order)
         let _ = api.get(url: url, decodable: ResultsResponse.self) { response, error in
             if let response = response {
-                completionHandler(response.results, nil)
+                completion(response.results, nil)
             } else {
-                completionHandler(nil, error)
+                completion(nil, error)
             }
         }
     }
     
-    class func get(id: String, completionHandler: @escaping (StudentLocation?, Error?) -> Void) {
+    class func get(id: String, completion: @escaping (StudentLocation?, Error?) -> Void) {
         let url = Endpoints.studentLocation(where: "{\"uniqueKey\": \"\(id)\"}")
         let _ = api.get(url: url, decodable: ResultsResponse.self) { response, error in
             if let response = response {
-                completionHandler(response.results.first, nil)
+                completion(response.results.first, nil)
             } else {
-                completionHandler(nil, error)
+                completion(nil, error)
             }
         }
     }
     
-    class func post(_ payload: StudentLocation, completionHandler: @escaping (String?, Error?) -> Void) {
+    class func post(_ payload: StudentLocation, completion: @escaping (String?, Error?) -> Void) {
         let _ = api.post(url: Endpoints.studentLocation, payload: payload, decodable: PostResponse.self) { response, error in
             if let response = response {
-                completionHandler(response.objectId, nil)
+                completion(response.objectId, nil)
             } else {
-                completionHandler(nil, error)
+                completion(nil, error)
             }
         }
     }
     
-    class func put(id: String, payload: StudentLocation, completionHandler: @escaping (Error?) -> Void) {
+    class func put(id: String, payload: StudentLocation, completion: @escaping (Error?) -> Void) {
         let url = Endpoints.studentLocation(id: id)
         let _ = api.put(url: url, payload: payload, decodable: PutResponse.self) { response, error in
             if response != nil {
-                completionHandler(nil)
+                completion(nil)
             } else {
-                completionHandler(error)
+                completion(error)
             }
         }
     }

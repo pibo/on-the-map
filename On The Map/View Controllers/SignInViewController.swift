@@ -117,7 +117,7 @@ class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
         let username = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        Udacity.signIn(username: username, password: password, completionHandler: handleSignInCompletion(id:error:))
+        Udacity.signIn(username: username, password: password, completion: handleSignInCompletion(id:error:))
     }
     
     @IBAction func signUp(_ sender: Any) {

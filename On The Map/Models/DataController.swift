@@ -62,32 +62,32 @@ class DataController {
     
     // MARK: - Methods
     
-    func getUser(id: String, completionHandler: @escaping CompletionHandler) {
+    func getUser(id: String, completion: @escaping CompletionHandler) {
         Udacity.getUser(id: id) { user, error in
             if let error = error {
-                completionHandler(error)
+                completion(error)
             } else {
                 self.user = user
-                completionHandler(nil)
+                completion(nil)
             }
         }
     }
     
-    func refresh(completionHandler: @escaping CompletionHandler) {
+    func refresh(completion: @escaping CompletionHandler) {
         getStudentLocations { error in
             if let error = error {
-                completionHandler(error)
+                completion(error)
                 return
             }
             
-            self.getMyStudentLocation(completionHandler: completionHandler)
+            self.getMyStudentLocation(completion: completion)
         }
     }
     
-    func getStudentLocations(completionHandler: @escaping CompletionHandler) {
+    func getStudentLocations(completion: @escaping CompletionHandler) {
         Parse.get { otherStudentLocations, error in
             if let error = error {
-                completionHandler(error)
+                completion(error)
             } else {
                 let myLocation: (StudentLocation) -> Bool = { $0.uniqueKey != self.user.id }
                 let emptyCoordinate: (StudentLocation) -> Bool = { $0.latitude != nil && $0.longitude != nil }
@@ -101,18 +101,18 @@ class DataController {
                 
                 self.otherStudentLocations = otherStudentLocations!.filter(emptyStrings).filter(emptyCoordinate).filter(myLocation)
                 
-                completionHandler(nil)
+                completion(nil)
             }
         }
     }
     
-    func getMyStudentLocation(completionHandler: @escaping CompletionHandler) {
+    func getMyStudentLocation(completion: @escaping CompletionHandler) {
         Parse.get(id: user.id) { (myStudentLocation, error) in
             if let error = error {
-                completionHandler(error)
+                completion(error)
             } else {
                 self.myStudentLocation = myStudentLocation
-                completionHandler(nil)
+                completion(nil)
             }
         }
     }
