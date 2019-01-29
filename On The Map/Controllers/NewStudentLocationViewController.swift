@@ -26,6 +26,7 @@ class NewStudentLocationViewController: UIViewController, HideViewsOnLandscape {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardOnTap()
         hideOnLandscape(view: globeImage)
         setupRoundedBorders()
     }

@@ -22,6 +22,7 @@ class SignInViewController: UIViewController, HideViewsOnLandscape {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardOnTap()
         hideOnLandscape(view: udacityLogo)
         setupRoundedBorders()
     }
