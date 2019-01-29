@@ -10,7 +10,7 @@ import Foundation
 
 class Udacity: URLBuilder {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     static let scheme: String = "https"
     static let host: String = "onthemap-api.udacity.com"

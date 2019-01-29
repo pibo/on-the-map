@@ -10,11 +10,11 @@ import Foundation
 
 extension Parse {
     
-    // MARK: Response
+    // MARK: - Response
     
     struct ResultsResponse: Decodable {
         
-        // MARK: Properties
+        // MARK: - Properties
         
         let results: [StudentLocation]
     }

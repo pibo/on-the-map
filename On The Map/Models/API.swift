@@ -10,7 +10,7 @@ import Foundation
 
 class API {
     
-    // MARK: Properties
+    // MARK: - Properties
 
     var defaultHeaders: [String: String] = [
         "Accept": "application/json",
@@ -19,13 +19,13 @@ class API {
     
     var transformData: (Data) -> Data = { $0 }
     
-    // MARK: Method Enum
+    // MARK: - Method Enum
     
     enum Method: String {
         case GET, POST, PUT, DELETE
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     private func request<Request: Encodable, Response: Decodable>(method: Method, url: URL, payload: Request?, decodable: Response.Type, headers: [String: String], completionHandler: @escaping (Response?, Error?) -> Void) -> URLSessionDataTask {
         var request = URLRequest(url: url)
@@ -65,7 +65,7 @@ class API {
         return task
     }
     
-    // MARK: Convenience Methods
+    // MARK: - Convenience Methods
     
     func get<Response: Decodable>(url: URL, decodable: Response.Type, headers: [String: String] = [:], completionHandler: @escaping (Response?, Error?) -> Void) -> URLSessionDataTask {
         return request(method: .GET, url: url, payload: nil as String?, decodable: Response.self, headers: headers, completionHandler: completionHandler)

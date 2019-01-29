@@ -10,7 +10,7 @@ import UIKit
 
 class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
     
-    // MARK: Outlets
+    // MARK: - Outlets
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -18,7 +18,7 @@ class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var udacityLogo: UIImageView!
     
-    // MARK: Life Cycle Methods
+    // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
         setupRoundedBorders()
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         hideOnLandscape(view: udacityLogo, transitioningTo: newCollection)
@@ -110,7 +110,7 @@ class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
         present(alert, animated: true, completion: nil)
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @IBAction func signIn(_ sender: Any) {
         isLoading(true)
@@ -125,7 +125,7 @@ class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
     }
 }
 
-// MARK: UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 
 extension SignInViewController: UITextFieldDelegate {
     

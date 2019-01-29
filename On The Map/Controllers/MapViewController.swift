@@ -11,17 +11,17 @@ import MapKit
 
 class MapViewController: InternalViewController {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     var delegate = MapViewDelegate()
     var otherStudentAnnotations = [StudentAnnotation]()
     var myStudentAnnotation: StudentAnnotation?
     
-    // MARK: Outlets
+    // MARK: - Outlets
     
     @IBOutlet var mapView: MKMapView!
     
-    // MARK: Life Cycle Methods
+    // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class MapViewController: InternalViewController {
         add(other: annotations)
     }
     
-    // MARK: Notification Related Methods
+    // MARK: - Notification Related Methods
     
     @objc override func didChangeOtherStudentLocations(_ notification: Notification) {
         let otherStudentLocations = notification.userInfo![DataContainer.otherStudentLocationsKey] as! [StudentLocation]
@@ -65,7 +65,7 @@ class MapViewController: InternalViewController {
         add(my: annotation)
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     func add(my annotation: StudentAnnotation) {
         delegate.myStudentAnnotation = annotation

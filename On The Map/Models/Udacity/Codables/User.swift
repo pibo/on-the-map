@@ -10,7 +10,7 @@ import Foundation
 
 struct User: Decodable {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     let id: String
     let firstName: String
@@ -18,7 +18,7 @@ struct User: Decodable {
     let nickname: String
     let email: String
     
-    // MARK: Initializer
+    // MARK: - Initializer
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
@@ -31,7 +31,7 @@ struct User: Decodable {
         self.email = try email.decode(String.self, forKey: .address)
     }
     
-    // MARK: CodingKeys
+    // MARK: - CodingKeys
     
     enum CodingKeys: String, CodingKey {
         case id = "key"

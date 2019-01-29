@@ -11,7 +11,7 @@ import UIKit
 
 class NewStudentLocationMapViewController: UIViewController {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     let delegate = MapViewDelegate()
     var annotation: StudentAnnotation!
@@ -19,13 +19,13 @@ class NewStudentLocationMapViewController: UIViewController {
     var originalButtonTitle: String!
     
 
-    // MARK: Outlets
+    // MARK: - Outlets
     
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var finishButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
-    // MARK: Life Cycle Methods
+    // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class NewStudentLocationMapViewController: UIViewController {
         mapView.showAnnotations([annotation], animated: true)
     }
 
-    // MARK: Methods
+    // MARK: - Methods
 
     func addAnnotation() {
         annotation = StudentAnnotation(studentLocation: newStudentLocation, markColor: UIColor(named: "Primary Red")!)
@@ -95,7 +95,7 @@ class NewStudentLocationMapViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK: Actions
+    // MARK: - Actions
 
     @IBAction func finish(_ sender: Any) {
         isLoading(true)

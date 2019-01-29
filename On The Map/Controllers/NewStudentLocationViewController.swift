@@ -10,11 +10,11 @@ import UIKit
 
 class NewStudentLocationViewController: KeyboardAwareViewController, HideViewsOnLandscape {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     var newStudentLocation: StudentLocation!
     
-    // MARK: Outlets
+    // MARK: - Outlets
     
     @IBOutlet var mapStringTextField: UITextField!
     @IBOutlet var mediaURLTextField: UITextField!
@@ -22,7 +22,7 @@ class NewStudentLocationViewController: KeyboardAwareViewController, HideViewsOn
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var globeImage: UIImageView!
     
-    // MARK: Life Cycle Methods
+    // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class NewStudentLocationViewController: KeyboardAwareViewController, HideViewsOn
         setupRoundedBorders()
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         hideOnLandscape(view: globeImage, transitioningTo: newCollection)
@@ -109,7 +109,7 @@ class NewStudentLocationViewController: KeyboardAwareViewController, HideViewsOn
         present(alert, animated: true, completion: nil)
     }
 
-    // MARK: Actions
+    // MARK: - Actions
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -131,7 +131,7 @@ class NewStudentLocationViewController: KeyboardAwareViewController, HideViewsOn
     }
 }
 
-// MARK: UITextFieldDelegate
+// MARK: - UITextFieldDelegate
 
 extension NewStudentLocationViewController: UITextFieldDelegate {
     

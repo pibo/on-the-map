@@ -10,7 +10,7 @@ import Foundation
 
 protocol URLBuilder {
     
-    // MARK: Required Properties
+    // MARK: - Required Properties
     
     static var scheme: String { get }
     static var host: String { get }
@@ -21,7 +21,7 @@ protocol URLBuilder {
 
 extension URLBuilder {
     
-    // MARK: Default Implementation
+    // MARK: - Default Implementation
     
     static func url(_ path: String? = nil, params: [String: String] = [:]) -> URL {
         var components = URLComponents()

@@ -10,19 +10,19 @@ import UIKit
 
 class KeyboardAwareViewController: UIViewController {
     
-    // MARK: - Configuration
+    // MARK: - - Configuration
     
     let keyboardOffset: CGFloat = 32.0
     let animationDuration: TimeInterval = 0.3
     
-    // MARK: - Properties
+    // MARK: - - Properties
     
     var awareTextFields: [UITextField]!
     var keyboardObservers: [Any] = []
     var textFieldObservers: [Any] = []
     var keyboardHeight: CGFloat?
     
-    // MARK: - Life Cycle Methods
+    // MARK: - - Life Cycle Methods
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,7 +34,7 @@ class KeyboardAwareViewController: UIViewController {
         destroyObservers()
     }
     
-    // MARK: - Helper Methods
+    // MARK: - - Helper Methods
     
     private func createKeyboardObserver() {
         let willShowObserver = NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main, using: { notification in
@@ -77,7 +77,7 @@ class KeyboardAwareViewController: UIViewController {
         UIView.animate(withDuration: animationDuration) { self.view.frame.origin.y = y }
     }
     
-    // MARK: - Public API
+    // MARK: - - Public API
     
     func adjustView(for textFields: [UITextField]) {
         awareTextFields = textFields

@@ -10,7 +10,7 @@ import MapKit
 
 class StudentAnnotation: NSObject, MKAnnotation {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     let coordinate: CLLocationCoordinate2D
     let title: String?
@@ -20,7 +20,7 @@ class StudentAnnotation: NSObject, MKAnnotation {
     
     var memberAnnotations: [MKAnnotation] = []
     
-    // MARK: Initializer
+    // MARK: - Initializer
 
     init(studentLocation: StudentLocation, markColor: UIColor) {
         self.studentLocation = studentLocation
@@ -35,7 +35,7 @@ class StudentAnnotation: NSObject, MKAnnotation {
     }
 }
 
-// MARK: Equatable for StudentAnnotation
+// MARK: - Equatable for StudentAnnotation
 
 func ==<T: StudentAnnotation>(lhs: T, rhs: T) -> Bool {
     return lhs.studentLocation == rhs.studentLocation

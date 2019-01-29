@@ -10,12 +10,12 @@ import UIKit
 
 class InternalViewController: UIViewController {
     
-    // MARK: Outlets
+    // MARK: - Outlets
     
     @IBOutlet var refreshButtonItem: UIBarButtonItem!
     @IBOutlet var addButtonItem: UIBarButtonItem!
     
-    // MARK: Life Cycle Methods
+    // MARK: - Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +26,7 @@ class InternalViewController: UIViewController {
         unsubscribe(from: DataContainer.shared)
     }
     
-    // MARK: Notification Related Methods
+    // MARK: - Notification Related Methods
     
     @objc func didChangeOtherStudentLocations(_ notification: Notification) {}
     @objc func didAddMyStudentLocation(_ notification: Notification) {}
@@ -75,7 +75,7 @@ class InternalViewController: UIViewController {
         )
     }
     
-    // MARK: Refresh Related Methods
+    // MARK: - Refresh Related Methods
     
     func isRefreshing(_ refreshing: Bool) {
         if refreshing {
@@ -100,7 +100,7 @@ class InternalViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     
     @IBAction func signOut(_ sender: Any) {
         let alert = UIAlertController(title: Strings.SignOut.title, message: Strings.SignOut.message, preferredStyle: .alert)

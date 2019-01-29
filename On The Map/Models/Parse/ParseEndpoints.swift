@@ -12,11 +12,11 @@ extension Parse {
     
     struct Endpoints {
         
-        // MARK: Properties
+        // MARK: - Properties
         
         static let studentLocation = url("/StudentLocation")
         
-        // MARK: Methods
+        // MARK: - Methods
         
         static func studentLocation(limit: Int, skip: Int, order: String?) -> URL {
             var params: [String: String] = [:]

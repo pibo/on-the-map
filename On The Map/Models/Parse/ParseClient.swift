@@ -10,7 +10,7 @@ import Foundation
 
 class Parse: URLBuilder {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     static let scheme: String = "https"
     static let host: String = "parse.udacity.com"

@@ -11,7 +11,7 @@ import CoreLocation
 
 struct StudentLocation: Codable, Equatable {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     let uniqueKey: String
     let firstName: String
@@ -23,13 +23,13 @@ struct StudentLocation: Codable, Equatable {
     var latitude: Double?
     var longitude: Double?
     
-    // MARK: Computed Properties
+    // MARK: - Computed Properties
     
     var fullName: String {
         return "\(firstName) \(lastName)"
     }
     
-    // MARK: Initializer
+    // MARK: - Initializer
     
     init(uniqueKey: String, firstName: String, lastName: String, mapString: String, mediaURL: String) {
         self.uniqueKey = uniqueKey
@@ -52,7 +52,7 @@ struct StudentLocation: Codable, Equatable {
         longitude = try? container.decode(Double.self, forKey: .longitude)
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     mutating func getCoordinate(completionHandler: @escaping ((latitude: Double, longitude: Double)?, Error?) -> Void) {
         if let lat = latitude, let lon = longitude {

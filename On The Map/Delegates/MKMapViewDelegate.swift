@@ -10,11 +10,11 @@ import MapKit
 
 class MapViewDelegate: NSObject, MKMapViewDelegate {
     
-    // MARK: Properties
+    // MARK: - Properties
     
     var myStudentAnnotation: StudentAnnotation?
     
-    // MARK: MKMapViewDelegate
+    // MARK: - MKMapViewDelegate
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let reuseIdentifier = "StudentLocationPin"

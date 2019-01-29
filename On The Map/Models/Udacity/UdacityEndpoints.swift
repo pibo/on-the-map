@@ -12,12 +12,12 @@ extension Udacity {
     
     struct Endpoints {
         
-        // MARK: Properties
+        // MARK: - Properties
         
         static let signUp = URL(string: "https://auth.udacity.com/sign-up")!
         static let session = url("/session")
         
-        // MARK: Methods
+        // MARK: - Methods
         
         static func users(id: String) -> URL { return url("/users/\(id)") }
     }

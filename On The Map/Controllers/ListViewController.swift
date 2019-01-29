@@ -10,11 +10,11 @@ import UIKit
 
 class ListViewController: InternalViewController {
     
-    // MARK: Outlets
+    // MARK: - Outlets
     
     @IBOutlet var tableView: UITableView!
     
-    // MARK: Notification Related Methods
+    // MARK: - Notification Related Methods
 
     @objc override func didChangeOtherStudentLocations(_ notification: Notification) {
         tableView.reloadData()
@@ -29,7 +29,7 @@ class ListViewController: InternalViewController {
     }
 }
 
-// MARK: UITableViewDataSource, UITableViewDelegate
+// MARK: - UITableViewDataSource, UITableViewDelegate
 
 extension ListViewController: UITableViewDataSource, UITableViewDelegate {
     

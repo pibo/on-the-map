@@ -13,7 +13,7 @@ class DataContainer {
     
     typealias CompletionHandler = (Error?) -> Void
     
-    // MARK: Properties
+    // MARK: - Properties
     
     var user: User!
     
@@ -39,18 +39,18 @@ class DataContainer {
         }
     }
     
-    // MARK: Notifications
+    // MARK: - Notifications
     
     static let didChangeOtherStudentLocationsNotification = Notification.Name("didChangeOtherStudentLocationsNotification")
     static let didAddMyStudentLocationNotification = Notification.Name("didAddMyStudentLocationNotification")
     static let didUpdateMyStudentLocationNotification = Notification.Name("didUpdateMyStudentLocationNotification")
     
-    // MARK: UserInfo Keys
+    // MARK: - UserInfo Keys
     
     static let myStudentLocationKey = "myStudentLocation"
     static let otherStudentLocationsKey = "otherStudentLocations"
     
-    // MARK: Shared Instance
+    // MARK: - Shared Instance
     
     class var shared: DataContainer {
         struct Singleton {
@@ -60,7 +60,7 @@ class DataContainer {
         return Singleton.sharedInstance
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     
     func getUser(id: String, completionHandler: @escaping CompletionHandler) {
         Udacity.getUser(id: id) { user, error in
