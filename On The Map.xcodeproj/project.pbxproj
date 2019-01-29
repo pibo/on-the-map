@@ -137,7 +137,7 @@
 				98A7982921F7854700785E93 /* Strings.swift */,
 				986610A421ECAE55001F8890 /* Info.plist */,
 				98D66F1421F8A4A60050C1E2 /* Delegates */,
-				986610AA21ECC20B001F8890 /* Controllers */,
+				986610AA21ECC20B001F8890 /* View Controllers */,
 				986610AC21ECC301001F8890 /* Models */,
 				98E2876821F4E47200FDFF9E /* Views */,
 				986610AB21ECC21C001F8890 /* Assets */,
@@ -145,7 +145,7 @@
 			path = "On The Map";
 			sourceTree = "<group>";
 		};
-		986610AA21ECC20B001F8890 /* Controllers */ = {
+		986610AA21ECC20B001F8890 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				9866109A21ECAE53001F8890 /* SignInViewController.swift */,
@@ -155,7 +155,7 @@
 				98A7982B21F7896C00785E93 /* NewStudentLocationViewController.swift */,
 				98A7982D21F7897F00785E93 /* NewStudentLocationMapViewController.swift */,
 			);
-			path = Controllers;
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		986610AB21ECC21C001F8890 /* Assets */ = {
