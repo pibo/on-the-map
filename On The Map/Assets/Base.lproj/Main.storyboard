@@ -373,47 +373,47 @@
                                     <constraint firstAttribute="trailing" secondItem="PHM-7y-7zA" secondAttribute="trailing" id="tow-AN-Z9p"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Globe" translatesAutoresizingMaskIntoConstraints="NO" id="sOj-P3-bWe" userLabel="Globe (Landscape)">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Globe" translatesAutoresizingMaskIntoConstraints="NO" id="yYe-TO-YlT" userLabel="Globe Image (Landscape)">
                                 <rect key="frame" x="539" y="139.5" width="96" height="96"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="96" id="5qH-2j-pRk"/>
-                                    <constraint firstAttribute="height" constant="96" id="JKb-uQ-bNH"/>
+                                    <constraint firstAttribute="width" constant="96" id="RI3-VD-Pqp"/>
+                                    <constraint firstAttribute="height" constant="96" id="hrd-yn-csJ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="sOj-P3-bWe" firstAttribute="centerY" secondItem="mu7-ZN-Hpq" secondAttribute="centerY" id="5nS-hX-SPw"/>
-                            <constraint firstItem="GRL-wX-6FN" firstAttribute="trailing" secondItem="sOj-P3-bWe" secondAttribute="trailing" constant="32" id="WFu-Y4-fyo"/>
+                            <constraint firstItem="yYe-TO-YlT" firstAttribute="centerY" secondItem="mu7-ZN-Hpq" secondAttribute="centerY" id="UCO-5r-1rl"/>
                             <constraint firstItem="bLX-Jq-Kt4" firstAttribute="centerY" secondItem="mu7-ZN-Hpq" secondAttribute="centerY" id="acd-ft-XPY"/>
                             <constraint firstItem="GRL-wX-6FN" firstAttribute="trailing" secondItem="bLX-Jq-Kt4" secondAttribute="trailing" constant="32" id="d1c-4X-Bo4">
                                 <variation key="heightClass=compact-widthClass=compact" constant="160"/>
                                 <variation key="heightClass=compact-widthClass=regular" constant="160"/>
                             </constraint>
-                            <constraint firstItem="sOj-P3-bWe" firstAttribute="leading" secondItem="bLX-Jq-Kt4" secondAttribute="trailing" constant="32" id="si7-w9-TMh"/>
+                            <constraint firstItem="yYe-TO-YlT" firstAttribute="leading" secondItem="bLX-Jq-Kt4" secondAttribute="trailing" constant="32" id="irs-Lk-Uwj"/>
+                            <constraint firstItem="yYe-TO-YlT" firstAttribute="trailing" secondItem="GRL-wX-6FN" secondAttribute="trailing" constant="-32" id="tvU-r5-fIO"/>
                             <constraint firstItem="bLX-Jq-Kt4" firstAttribute="leading" secondItem="GRL-wX-6FN" secondAttribute="leading" constant="32" id="vKN-3T-wfr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GRL-wX-6FN"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="sOj-P3-bWe"/>
+                                <exclude reference="yYe-TO-YlT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="sOj-P3-bWe"/>
+                                <include reference="yYe-TO-YlT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact-widthClass=regular">
                             <mask key="subviews">
-                                <include reference="sOj-P3-bWe"/>
+                                <include reference="yYe-TO-YlT"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="New Location" id="3UX-5n-frs">
                         <barButtonItem key="backBarButtonItem" title="Back" id="llP-Ll-2oG"/>
                         <barButtonItem key="leftBarButtonItem" style="plain" id="3kZ-Z1-eVD" userLabel="Cancel Button Item">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fbi-P4-XIs" userLabel="Cancel Button">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Fbi-P4-XIs" userLabel="Cancel Button">
                                 <rect key="frame" x="20" y="0.0" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -427,7 +427,7 @@
                     <connections>
                         <outlet property="activityIndicator" destination="JHE-L5-6J1" id="EHI-iH-5Kz"/>
                         <outlet property="continueButton" destination="ylq-Ld-f7g" id="pvg-in-cXp"/>
-                        <outlet property="globeImage" destination="sOj-P3-bWe" id="tMg-B9-74Q"/>
+                        <outlet property="globeImage" destination="oL9-TL-aef" id="PMJ-4z-6Ys"/>
                         <outlet property="mapStringTextField" destination="xVB-ug-T3F" id="Ig6-T0-x2f"/>
                         <outlet property="mediaURLTextField" destination="ccm-ly-VSC" id="i5i-sd-XHy"/>
                         <segue destination="7QU-fJ-Qca" kind="show" identifier="NewStudentLocationMap" id="4fz-Hg-TVy"/>
