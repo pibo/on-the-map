@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, HideViewsOnLandscape {
 
     // MARK: Outlets
     
@@ -16,15 +16,21 @@ class SignInViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var signInButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var udacityLogo: UIImageView!
     
     // MARK: Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideOnLandscape(view: udacityLogo)
         setupRoundedBorders()
     }
     
     // MARK: Methods
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        hideOnLandscape(view: udacityLogo, transitioningTo: newCollection)
+    }
 
     func setupRoundedBorders() {
         emailTextField.padding(left: 4, right: 4)

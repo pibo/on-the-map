@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewStudentLocationViewController: UIViewController {
+class NewStudentLocationViewController: UIViewController, HideViewsOnLandscape {
     
     // MARK: Properties
     
@@ -20,15 +20,21 @@ class NewStudentLocationViewController: UIViewController {
     @IBOutlet var mediaURLTextField: UITextField!
     @IBOutlet var continueButton: UIButton!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet var globeImage: UIImageView!
     
     // MARK: Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideOnLandscape(view: globeImage)
         setupRoundedBorders()
     }
     
     // MARK: Methods
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        hideOnLandscape(view: globeImage, transitioningTo: newCollection)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "NewStudentLocationMap" {
