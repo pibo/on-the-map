@@ -91,8 +91,15 @@ class DataContainer {
             } else {
                 let myLocation: (StudentLocation) -> Bool = { $0.uniqueKey != self.user.id }
                 let emptyCoordinate: (StudentLocation) -> Bool = { $0.latitude != nil && $0.longitude != nil }
+                let emptyStrings: (StudentLocation) -> Bool = {
+                    !$0.uniqueKey.isEmpty &&
+                    !$0.firstName.isEmpty &&
+                    !$0.lastName.isEmpty &&
+                    !$0.mediaURL.isEmpty &&
+                    !$0.mapString.isEmpty
+                }
                 
-                self.otherStudentLocations = otherStudentLocations!.filter(emptyCoordinate).filter(myLocation)
+                self.otherStudentLocations = otherStudentLocations!.filter(emptyStrings).filter(emptyCoordinate).filter(myLocation)
                 
                 completionHandler(nil)
             }

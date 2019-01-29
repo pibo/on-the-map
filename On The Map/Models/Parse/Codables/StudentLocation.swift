@@ -42,11 +42,11 @@ struct StudentLocation: Codable, Equatable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
-        uniqueKey = (try? container.decode(String.self, forKey: .uniqueKey)) ?? "?????"
-        firstName = (try? container.decode(String.self, forKey: .firstName)) ?? "?????"
-        lastName  = (try? container.decode(String.self, forKey: .lastName))  ?? "?????"
-        mapString = try container.decode(String.self, forKey: .mapString)
-        mediaURL = try container.decode(String.self, forKey: .mediaURL)
+        uniqueKey = (try? container.decode(String.self, forKey: .uniqueKey)) ?? ""
+        firstName = (try? container.decode(String.self, forKey: .firstName)) ?? ""
+        lastName  = (try? container.decode(String.self, forKey: .lastName))  ?? ""
+        mapString = (try? container.decode(String.self, forKey: .mapString)) ?? ""
+        mediaURL  = (try? container.decode(String.self, forKey: .mediaURL))  ?? ""
         objectId = try container.decode(String.self, forKey: .objectId)
         latitude = try? container.decode(Double.self, forKey: .latitude)
         longitude = try? container.decode(Double.self, forKey: .longitude)
