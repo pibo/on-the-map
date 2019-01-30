@@ -38,8 +38,8 @@
 		98E2876321F2486D00FDFF9E /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876221F2486D00FDFF9E /* Results.swift */; };
 		98E2876521F24E4300FDFF9E /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876421F24E4300FDFF9E /* Post.swift */; };
 		98E2876721F24F4500FDFF9E /* Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876621F24F4500FDFF9E /* Put.swift */; };
-		98E2876A21F4E48B00FDFF9E /* UITextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */; };
-		98E2876C21F4E63600FDFF9E /* UIButtonCornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */; };
+		98E2876A21F4E48B00FDFF9E /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876921F4E48B00FDFF9E /* UITextField+Padding.swift */; };
+		98E2876C21F4E63600FDFF9E /* UIButton+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E2876B21F4E63600FDFF9E /* UIButton+Extensions.swift */; };
 		98F9A44B21F5E49F0041E2F2 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F9A44A21F5E49F0041E2F2 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
@@ -77,8 +77,8 @@
 		98E2876221F2486D00FDFF9E /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		98E2876421F24E4300FDFF9E /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		98E2876621F24F4500FDFF9E /* Put.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Put.swift; sourceTree = "<group>"; };
-		98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldPadding.swift; sourceTree = "<group>"; };
-		98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonCornerRadius.swift; sourceTree = "<group>"; };
+		98E2876921F4E48B00FDFF9E /* UITextField+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
+		98E2876B21F4E63600FDFF9E /* UIButton+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extensions.swift"; sourceTree = "<group>"; };
 		98F9A44A21F5E49F0041E2F2 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,8 +217,8 @@
 				982658522200678100E36055 /* HideViewsOnLandscape.swift */,
 				9826585422007EF200E36055 /* HideKeyboardOnTap.swift */,
 				98A7982721F63DFB00785E93 /* StudentAnnotation.swift */,
-				98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */,
-				98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */,
+				98E2876B21F4E63600FDFF9E /* UIButton+Extensions.swift */,
+				98E2876921F4E48B00FDFF9E /* UITextField+Padding.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -306,7 +306,7 @@
 				986610AE21ECC3EB001F8890 /* API.swift in Sources */,
 				98A7982A21F7854700785E93 /* Strings.swift in Sources */,
 				98E2875A21F2357200FDFF9E /* ParseClient.swift in Sources */,
-				98E2876A21F4E48B00FDFF9E /* UITextFieldPadding.swift in Sources */,
+				98E2876A21F4E48B00FDFF9E /* UITextField+Padding.swift in Sources */,
 				982658532200678100E36055 /* HideViewsOnLandscape.swift in Sources */,
 				9818674921F1181600EEC841 /* UdacityConvenience.swift in Sources */,
 				9818674521F10DB800EEC841 /* UdacityClient.swift in Sources */,
@@ -322,7 +322,7 @@
 				98E2875C21F239F800FDFF9E /* ParseEndpoints.swift in Sources */,
 				982658592200B80900E36055 /* KeyboardAwareViewController.swift in Sources */,
 				9866109921ECAE53001F8890 /* AppDelegate.swift in Sources */,
-				98E2876C21F4E63600FDFF9E /* UIButtonCornerRadius.swift in Sources */,
+				98E2876C21F4E63600FDFF9E /* UIButton+Extensions.swift in Sources */,
 				98A7982C21F7896C00785E93 /* NewStudentLocationViewController.swift in Sources */,
 				985426B921F5FC5C0005D568 /* InternalViewController.swift in Sources */,
 			);

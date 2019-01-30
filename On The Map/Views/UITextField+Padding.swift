@@ -1,5 +1,5 @@
 //
-//  UITextFieldPadding.swift
+//  UITextField+Padding.swift
 //  On The Map
 //
 //  Created by Felipe Ribeiro on 20/01/19.
