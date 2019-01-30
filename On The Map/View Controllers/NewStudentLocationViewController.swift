@@ -149,6 +149,9 @@ extension NewStudentLocationViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text! as NSString
+        textField.text = currentText.replacingCharacters(in: range, with: string)
+        
         if mapStringTextField.text!.isEmpty || mediaURLTextField.text!.isEmpty {
             continueButton.isEnabled = false
             continueButton.alpha = 0.25
@@ -157,6 +160,6 @@ extension NewStudentLocationViewController: UITextFieldDelegate {
             continueButton.alpha = 1
         }
         
-        return true
+        return false
     }
 }

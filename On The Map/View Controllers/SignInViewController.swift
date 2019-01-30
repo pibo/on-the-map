@@ -143,6 +143,9 @@ extension SignInViewController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text! as NSString
+        textField.text = currentText.replacingCharacters(in: range, with: string)
+        
         if emailTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
             signInButton.isEnabled = false
             signInButton.alpha = 0.25
@@ -151,6 +154,6 @@ extension SignInViewController: UITextFieldDelegate {
             signInButton.alpha = 1
         }
         
-        return true
+        return false
     }
 }
