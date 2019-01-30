@@ -28,6 +28,14 @@ class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
         setupRoundedBorders()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        isLoading(false)
+        passwordTextField.text = ""
+        signInButton.enabled(false)
+    }
+    
     // MARK: - Methods
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -81,8 +89,6 @@ class SignInViewController: KeyboardAwareViewController, HideViewsOnLandscape {
                 return
             }
         
-            self.isLoading(false)
-            self.passwordTextField.text = ""
             self.performSegue(withIdentifier: "SignInSuccessful", sender: nil)
         }
     }
