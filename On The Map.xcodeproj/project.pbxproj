@@ -216,9 +216,9 @@
 				982658582200B80900E36055 /* KeyboardAwareViewController.swift */,
 				982658522200678100E36055 /* HideViewsOnLandscape.swift */,
 				9826585422007EF200E36055 /* HideKeyboardOnTap.swift */,
+				98A7982721F63DFB00785E93 /* StudentAnnotation.swift */,
 				98E2876921F4E48B00FDFF9E /* UITextFieldPadding.swift */,
 				98E2876B21F4E63600FDFF9E /* UIButtonCornerRadius.swift */,
-				98A7982721F63DFB00785E93 /* StudentAnnotation.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
